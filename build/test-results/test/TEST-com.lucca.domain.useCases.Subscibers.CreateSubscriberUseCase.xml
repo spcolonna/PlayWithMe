@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.lucca.domain.useCases.Subscibers.CreateSubscriberUseCase" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-19T12:00:52" hostname="Sebas" time="0.005">
-  <properties/>
-  <testcase name="algo" classname="com.lucca.domain.useCases.Subscibers.CreateSubscriberUseCase" time="0.005"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
