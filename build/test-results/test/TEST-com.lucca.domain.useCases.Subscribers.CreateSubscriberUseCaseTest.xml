@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.lucca.domain.useCases.Subscribers.CreateSubscriberUseCaseTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-01-19T12:24:35" hostname="Sebas" time="0.004">
-  <properties/>
-  <testcase name="create subscriber anotherId" classname="com.lucca.domain.useCases.Subscribers.CreateSubscriberUseCaseTest" time="0.004"/>
-  <testcase name="create subscriber" classname="com.lucca.domain.useCases.Subscribers.CreateSubscriberUseCaseTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
