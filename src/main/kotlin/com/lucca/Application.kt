@@ -1,7 +1,7 @@
-package com.example
+package com.lucca
 
 import io.ktor.application.*
-import com.example.plugins.*
+import com.lucca.plugins.*
 
 fun main(args: Array<String>): Unit =
     io.ktor.server.netty.EngineMain.main(args)
