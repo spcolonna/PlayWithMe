@@ -14,5 +14,7 @@ class CreateSubscriberUseCase(private val idGenerator: IIdGenerator, private val
 
     private fun createSubscriber(id: String, dto: CreateSubscriberDto) =
         Builder.createSubscriberFromDto(id, dto)
+
+    fun isContextValid(dto: CreateSubscriberDto) = repository.isMailAvailable(dto.mail)
 }
 

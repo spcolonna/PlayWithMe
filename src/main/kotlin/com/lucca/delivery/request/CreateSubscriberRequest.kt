@@ -6,8 +6,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 class CreateSubscriberRequest(
     private val mail: String,
+    private val password: String,
     private val name: String,
     private val birthDate: String
 ) {
-    fun toDto() = CreateSubscriberDto(mail, name, birthDate)
+    fun toDto() = CreateSubscriberDto(mail, password, name, birthDate)
 }

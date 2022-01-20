@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.lucca.domain.useCases.subscriber.CreateSubscriberUseCaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-19T14:34:37" hostname="Sebas" time="0.191">
+<testsuite name="com.lucca.domain.useCases.subscriber.CreateSubscriberUseCaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-20T11:33:34" hostname="Sebas" time="0.009">
   <properties/>
-  <testcase name="create subscriber" classname="com.lucca.domain.useCases.subscriber.CreateSubscriberUseCaseTest" time="0.191"/>
+  <testcase name="invalid context" classname="com.lucca.domain.useCases.subscriber.CreateSubscriberUseCaseTest" time="0.009"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
