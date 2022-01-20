@@ -19,9 +19,10 @@ class SubscriberRepository(
         }
     }
 
-    override fun isMailAvailable(mail: String): Boolean {
-        TODO("Not yet implemented")
-    }
+    override fun isMailAvailable(mail: String): Boolean =
+        runBlocking {
+            service.has(connection,mail)
+        }
 
     private fun createBaseKeyWith(id: String) = baseKey + id
 }

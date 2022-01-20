@@ -10,6 +10,9 @@ class RedisService {
         connection.set(key, value.asString())
     }
 
+    suspend fun has(connection: RedisCoroutinesCommands<String, String>, key: String): Boolean =
+        connection.exists(key)!! > 0
+
     private fun <T> T.asString(): String = mapper.writeValueAsString(this)
 
 }
