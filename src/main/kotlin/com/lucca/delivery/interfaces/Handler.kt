@@ -1,4 +1,4 @@
-package com.lucca.delivery
+package com.lucca.delivery.interfaces
 
 import io.ktor.application.*
 

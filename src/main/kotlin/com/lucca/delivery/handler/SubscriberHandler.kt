@@ -1,6 +1,6 @@
 package com.lucca.delivery.handler
 
-import com.lucca.delivery.Handler
+import com.lucca.delivery.interfaces.Handler
 import com.lucca.delivery.presenter.SubscriberPresenter
 import com.lucca.delivery.response.ResponseBuilder
 import io.ktor.application.*
@@ -9,7 +9,7 @@ import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 
-class SubscriberHandler(private val presenter: SubscriberPresenter):Handler {
+class SubscriberHandler(private val presenter: SubscriberPresenter): Handler {
     lateinit var application: Application
 
     override fun routing(a: Application) {

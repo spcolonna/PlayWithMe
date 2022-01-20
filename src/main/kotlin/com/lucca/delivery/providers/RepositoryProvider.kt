@@ -1,6 +1,6 @@
-package com.lucca.delivery
+package com.lucca.delivery.providers
 
-import com.lucca.delivery.ConfigurationProvider.config
+import com.lucca.delivery.providers.ConfigurationProvider.config
 import com.lucca.infra.dataBase.redis.SubscriberRepository
 import com.lucca.infra.service.RedisService
 import io.lettuce.core.RedisClient
