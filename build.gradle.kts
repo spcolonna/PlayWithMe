@@ -5,6 +5,7 @@ val kotlin_version: String by project
 val logback_version: String by project
 val kotestAssertions: String by project
 val lettuceVersion: String by project
+val hopliteVersion: String by project
 
 plugins {
     application
@@ -39,5 +40,16 @@ dependencies {
     implementation("io.ktor:ktor-client-json:$ktor_version")
     implementation("io.ktor:ktor-client-serialization-jvm:$ktor_version")
     implementation("io.ktor:ktor-jackson:$ktor_version")
+
+    // HTTP Server and Client
+    implementation("io.ktor:ktor-client-core:$ktor_version")
+    implementation("io.ktor:ktor-client-apache:$ktor_version")
+    implementation("io.ktor:ktor-client-jetty:$ktor_version")
+    implementation("io.ktor:ktor-client-logging:$ktor_version")
+    implementation("io.ktor:ktor-client-logging-jvm:$ktor_version")
+
+    // Configuration loader
+    implementation("com.sksamuel.hoplite:hoplite-core:$hopliteVersion")
+    implementation("com.sksamuel.hoplite:hoplite-yaml:$hopliteVersion")
 
 }
