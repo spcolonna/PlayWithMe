@@ -15,7 +15,7 @@ class SubscriberHandler(private val presenter: SubscriberPresenter): Handler {
     override fun routing(a: Application) {
         application = a
         a.routing {
-            get("/subscribers") {
+            post("/subscribers") {
                 presenter.createSubscriber(call.receive(), ResponseBuilder(call))
                 call.respondText("Call Subscriber")
             }

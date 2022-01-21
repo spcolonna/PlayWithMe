@@ -1,12 +1,9 @@
 package com.lucca.domain.entity
 
-class CreatePlayer(
-    id: String,
-    mail: String,
-    password: String,
-    name: String,
-    accountNumber: String,
-    listOf: List<PlayEvent>
-) {
-
-}
+data class CreatePlayer(
+    val id: String,
+    val mail: String,
+    val password: String,
+    val name: String,
+    val accountNumber: String,
+    val listOf: List<PlayEvent>)
