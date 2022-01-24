@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.lucca.ApplicationTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.lucca.ApplicationTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.lucca.html">com.lucca</a> &gt; ApplicationTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">1.529s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testRoot</td>
+<td class="success">1.529s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2022-01-24 17:40:50.290 [Test worker] INFO  ktor.test - Autoreload is disabled because the development mode is off.
+2022-01-24 17:40:50.298 [Test worker] INFO  ktor.test - Application started in 0.06 seconds.
+2022-01-24 17:40:50.846 [Test worker] INFO  c.l.d.providers.RepositoryProvider - Persistence type is REDIS
+2022-01-24 17:40:50.847 [Test worker] INFO  c.l.d.providers.RepositoryProvider - Connecting to redis instance...
+2022-01-24 17:40:50.898 [Test worker] DEBUG i.l.c.r.AddressResolverGroupProvider - Starting without optional netty's non-blocking DNS resolver library
+2022-01-24 17:40:50.899 [Test worker] DEBUG i.l.c.r.DefaultClientResources - -Dio.netty.eventLoopThreads: 12
+2022-01-24 17:40:50.905 [Test worker] DEBUG i.l.c.r.DefaultEventLoopGroupProvider - Creating executor io.netty.util.concurrent.DefaultEventExecutorGroup
+2022-01-24 17:40:50.963 [Test worker] DEBUG reactor.util.Loggers$LoggerFactory - Using Slf4j logging framework
+2022-01-24 17:40:50.966 [Test worker] DEBUG i.l.c.event.jfr.EventRecorderHolder - Starting with JFR support
+2022-01-24 17:40:51.040 [Test worker] DEBUG i.l.c.r.DefaultClientResources - LatencyUtils/HdrUtils are not available, metrics are disabled
+2022-01-24 17:40:51.045 [Test worker] DEBUG io.lettuce.core.RedisClient - Trying to get a Redis connection for: redis://***********@localhost
+2022-01-24 17:40:51.277 [Test worker] DEBUG i.l.core.resource.KqueueProvider - Starting without optional kqueue library
+2022-01-24 17:40:51.278 [Test worker] DEBUG i.l.core.resource.IOUringProvider - Starting without optional io_uring library
+2022-01-24 17:40:51.283 [Test worker] DEBUG i.l.core.resource.EpollProvider - Starting without optional epoll library
+2022-01-24 17:40:51.287 [Test worker] DEBUG i.l.c.r.DefaultEventLoopGroupProvider - Allocating executor io.netty.channel.nio.NioEventLoopGroup
+2022-01-24 17:40:51.288 [Test worker] DEBUG i.l.c.r.DefaultEventLoopGroupProvider - Creating executor io.netty.channel.nio.NioEventLoopGroup
+2022-01-24 17:40:51.293 [Test worker] DEBUG i.l.c.r.DefaultEventLoopGroupProvider - Adding reference to io.netty.channel.nio.NioEventLoopGroup@321bf35a, existing ref count 0
+2022-01-24 17:40:51.359 [Test worker] DEBUG io.lettuce.core.RedisClient - Resolved SocketAddress localhost/&lt;unresolved&gt;:6379 using redis://***********@localhost
+2022-01-24 17:40:51.360 [Test worker] DEBUG io.lettuce.core.AbstractRedisClient - Connecting to Redis at localhost/&lt;unresolved&gt;:6379
+2022-01-24 17:40:51.418 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.CommandHandler - [channel=0xf1e65acc, [id: 0x737db931] (inactive), epid=0x1, chid=0x1] channelRegistered()
+2022-01-24 17:40:51.450 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.CommandHandler - [channel=0xf1e65acc, /127.0.0.1:56095 -&gt; localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2022-01-24 17:40:51.452 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.CommandEncoder - [channel=0xf1e65acc, /127.0.0.1:56095 -&gt; localhost/127.0.0.1:6379] writing command AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2022-01-24 17:40:51.452 [lettuce-nioEventLoop-4-1] TRACE i.l.core.protocol.CommandEncoder - [channel=0xf1e65acc, /127.0.0.1:56095 -&gt; localhost/127.0.0.1:6379] Sent: *5
+$5
+HELLO
+$1
+3
+$4
+AUTH
+$7
+default
+$11
+local_redis
+2022-01-24 17:40:51.456 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.CommandHandler - [channel=0xf1e65acc, /127.0.0.1:56095 -&gt; localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 145 bytes, 1 commands in the stack
+2022-01-24 17:40:51.456 [lettuce-nioEventLoop-4-1] TRACE i.l.core.protocol.CommandHandler - [channel=0xf1e65acc, /127.0.0.1:56095 -&gt; localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Buffer: %7
+$6
+server
+$5
+redis
+$7
+version
+$5
+6.2.6
+$5
+proto
+:3
+$2
+id
+:29
+$4
+mode
+$10
+standalone
+$4
+role
+$6
+master
+$7
+modules
+*0
+2022-01-24 17:40:51.457 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.CommandHandler - [channel=0xf1e65acc, /127.0.0.1:56095 -&gt; localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2022-01-24 17:40:51.463 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.RedisStateMachine - Decode done, empty stack: true
+2022-01-24 17:40:51.464 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.CommandHandler - [channel=0xf1e65acc, /127.0.0.1:56095 -&gt; localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=HELLO, output=GenericMapOutput [output={server=redis, version=6.2.6, proto=3, id=29, mode=standalone, role=master}, error='null'], commandType=io.lettuce.core.protocol.Command]
+2022-01-24 17:40:51.464 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.CommandHandler - [channel=0xf1e65acc, /127.0.0.1:56095 -&gt; localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelActive()
+2022-01-24 17:40:51.465 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.DefaultEndpoint - [channel=0xf1e65acc, /127.0.0.1:56095 -&gt; localhost/127.0.0.1:6379, epid=0x1] activateEndpointAndExecuteBufferedCommands 0 command(s) buffered
+2022-01-24 17:40:51.465 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.DefaultEndpoint - [channel=0xf1e65acc, /127.0.0.1:56095 -&gt; localhost/127.0.0.1:6379, epid=0x1] activating endpoint
+2022-01-24 17:40:51.465 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.DefaultEndpoint - [channel=0xf1e65acc, /127.0.0.1:56095 -&gt; localhost/127.0.0.1:6379, epid=0x1] flushCommands()
+2022-01-24 17:40:51.466 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.DefaultEndpoint - [channel=0xf1e65acc, /127.0.0.1:56095 -&gt; localhost/127.0.0.1:6379, epid=0x1] flushCommands() Flushing 0 commands
+2022-01-24 17:40:51.468 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.ConnectionWatchdog - [channel=0xf1e65acc, /127.0.0.1:56095 -&gt; localhost/127.0.0.1:6379, last known addr=localhost/127.0.0.1:6379] channelActive()
+2022-01-24 17:40:51.468 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.CommandHandler - [channel=0xf1e65acc, /127.0.0.1:56095 -&gt; localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelActive() done
+2022-01-24 17:40:51.468 [lettuce-nioEventLoop-4-1] DEBUG io.lettuce.core.AbstractRedisClient - Connecting to Redis at localhost/&lt;unresolved&gt;:6379: Success
+2022-01-24 17:40:51.485 [Test worker] INFO  c.l.d.providers.RepositoryProvider - Connection with redis established
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.1</a> at Jan 24, 2022, 5:40:52 PM</p>
+</div>
+</div>
+</body>
+</html>

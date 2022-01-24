@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.lucca.KataGuille.FirstTDDGuille" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-21T20:06:49" hostname="Sebas.local" time="0.005">
-  <properties/>
-  <testcase name="is saved in data base" classname="com.lucca.KataGuille.FirstTDDGuille" time="0.005"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
