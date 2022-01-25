@@ -3,9 +3,8 @@ package com.lucca.domain.doubles
 import com.lucca.domain.entity.CreateSubscriber
 import com.lucca.domain.interace.ISubscriberRepository
 
-class SubscriberRepositoryDouble : ISubscriberRepository {
+class SubscriberRepositoryDouble(private val storedSubscribers: List<CreateSubscriber> = listOf()) : ISubscriberRepository {
     lateinit var lastStoredSubscriber: CreateSubscriber
-    private var storedSubscribers = listOf<CreateSubscriber>()
     var wasCalled: Boolean = false
 
 
@@ -14,9 +13,13 @@ class SubscriberRepositoryDouble : ISubscriberRepository {
         lastStoredSubscriber = createSubscriber
     }
 
-    override fun isMailAvailable(mail: String) = !storedSubscribers.any { it.mail == mail }
+    override fun isMailAvailable(mail: String): Boolean {
+        wasCalled = true
+        return !storedSubscribers.any { it.mail == mail }
+    }
 
-    fun setStoredSubscribers(subscribers: List<CreateSubscriber>) {
-        storedSubscribers = subscribers
+    override fun isSubscriberValid(subscriberId: String): Boolean {
+        wasCalled = true
+        return storedSubscribers.any { it.id == subscriberId }
     }
 }

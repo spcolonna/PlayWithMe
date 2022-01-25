@@ -4,11 +4,22 @@ import com.lucca.delivery.dto.CreateEventDto
 import com.lucca.domain.Builder
 import com.lucca.domain.interace.IEventRepository
 import com.lucca.domain.interace.IIdGenerator
+import com.lucca.domain.interace.IPlayerRepository
+import com.lucca.domain.interace.ISubscriberRepository
 
-class CreateEventUseCase(val idGenerator: IIdGenerator, val repository: IEventRepository) {
+class CreateEventUseCase(
+    private val idGenerator: IIdGenerator,
+    private val repository: IEventRepository,
+    private val playerRepository: IPlayerRepository,
+    private val subscriberRepository: ISubscriberRepository
+) {
     fun execute(dto: CreateEventDto): String {
-        repository.store(Builder.createEventFromDto(idGenerator.getId(), dto))
-        return "eventId"
+        val id = idGenerator.getId()
+        repository.store(Builder.createEventFromDto(id, dto))
+        return id
     }
+
+    fun isContextValid(dto: CreateEventDto) =
+        playerRepository.isPlayerValid(dto.playerId) && subscriberRepository.isSubscriberValid(dto.subscriberId)
 
 }

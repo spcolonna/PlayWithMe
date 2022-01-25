@@ -24,6 +24,10 @@ class SubscriberRepository(
             service.has(connection,mail)
         }
 
+    override fun isSubscriberValid(subscriberId: String): Boolean {
+        TODO("Not yet implemented")
+    }
+
     private fun createBaseKeyWith(id: String) = baseKey + id
 }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.lucca.domain.useCases.player.CreatePlayerUseCaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-24T20:40:51" hostname="sebas" time="0.003">
+<testsuite name="com.lucca.domain.useCases.player.CreatePlayerUseCaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-01-25T11:59:57" hostname="Sebas" time="0.002">
   <properties/>
-  <testcase name="create player" classname="com.lucca.domain.useCases.player.CreatePlayerUseCaseTest" time="0.003"/>
+  <testcase name="create player" classname="com.lucca.domain.useCases.player.CreatePlayerUseCaseTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

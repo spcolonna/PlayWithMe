@@ -57,8 +57,7 @@ class CreateSubscriberUseCaseTest {
     fun `invalid context`() {
         val mail = "mail"
         val subscriberDto = givenACreateSubscriberDto(mail = mail)
-        val subscriberRepository = SubscriberRepositoryDouble()
-        subscriberRepository.setStoredSubscribers(listOf(givenACreateSubscriber(mail = mail)))
+        val subscriberRepository = SubscriberRepositoryDouble(listOf(givenACreateSubscriber(mail = mail)))
         val useCase = CreateSubscriberUseCase(IdGeneratorDouble(),subscriberRepository)
 
         val result = useCase.isContextValid(subscriberDto)
