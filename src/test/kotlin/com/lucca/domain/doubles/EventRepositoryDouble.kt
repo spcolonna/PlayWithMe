@@ -1,24 +1,26 @@
 package com.lucca.domain.doubles
 
-import com.lucca.domain.Given
 import com.lucca.domain.entity.Event
 import com.lucca.domain.interace.IEventRepository
 
-class EventRepositoryDouble : IEventRepository {
+class EventRepositoryDouble(private var storedIds: List<String> = listOf()) : IEventRepository {
     lateinit var lastUpdateEvent: Event
-    lateinit var lastGetEventCalled: String
     lateinit var lastCreateEvent: Event
 
-    var storeWasCalled: Boolean = false
-    var getWasCalled: Boolean = false
+    var wasCalled: Boolean = false
 
-    override fun store(createEvent: Event) {
-        storeWasCalled = true
-        lastCreateEvent = createEvent
+    override fun store(event: Event) {
+        wasCalled = true
+        lastCreateEvent = event
     }
 
-    override fun get(eventId: String): Event {
-        getWasCalled = true
-        return Given.aEvent()
+    override fun has(eventId: String): Boolean {
+        wasCalled = true
+        return storedIds.any { it == eventId }
+    }
+
+    override fun update(event: Event) {
+        wasCalled = true
+        lastUpdateEvent = event
     }
 }

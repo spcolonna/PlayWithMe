@@ -32,7 +32,7 @@ class CreateEventTest {
         val result = useCase.execute(givenACreateEventDto())
 
         result.shouldBe(eventId)
-        repository.storeWasCalled.shouldBeTrue()
+        repository.wasCalled.shouldBeTrue()
         repository.lastCreateEvent.shouldBe(expected)
     }
 
@@ -51,7 +51,7 @@ class CreateEventTest {
         val result = useCase.execute(givenACreateEventDto())
 
         result.shouldBe(eventId)
-        repository.storeWasCalled.shouldBeTrue()
+        repository.wasCalled.shouldBeTrue()
         repository.lastCreateEvent.shouldBe(expected)
     }
 

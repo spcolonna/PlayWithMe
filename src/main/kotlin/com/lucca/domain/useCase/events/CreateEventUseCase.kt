@@ -15,7 +15,7 @@ class CreateEventUseCase(
 ) {
     fun execute(dto: CreateEventDto): String {
         val id = idGenerator.getId()
-        repository.store(Builder.createEventFromDto(id, dto))
+        repository.store(Builder.createEventFromCreateDto(id, dto))
         return id
     }
 
