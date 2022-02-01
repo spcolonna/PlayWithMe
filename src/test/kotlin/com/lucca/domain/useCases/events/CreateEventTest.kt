@@ -1,11 +1,11 @@
 package com.lucca.domain.useCases.events
 
 import com.lucca.delivery.dto.CreateEventDto
+import com.lucca.domain.Given
 import com.lucca.domain.doubles.EventRepositoryDouble
 import com.lucca.domain.doubles.IdGeneratorDouble
 import com.lucca.domain.doubles.PlayerRepositoryDouble
 import com.lucca.domain.doubles.SubscriberRepositoryDouble
-import com.lucca.domain.entity.CreateEvent
 import com.lucca.domain.entity.CreatePlayer
 import com.lucca.domain.entity.CreateSubscriber
 import com.lucca.domain.entity.PlayEvent
@@ -21,7 +21,7 @@ class CreateEventTest {
     fun `create event`() {
         val eventId = "eventId"
         val repository = EventRepositoryDouble()
-        val expected = givenACreateEvent(eventId = eventId, reservationConfirm = false)
+        val expected = Given.aEvent(eventId = eventId, reservationConfirm = false)
         val useCase = CreateEventUseCase(
             IdGeneratorDouble(eventId),
             repository,
@@ -32,7 +32,7 @@ class CreateEventTest {
         val result = useCase.execute(givenACreateEventDto())
 
         result.shouldBe(eventId)
-        repository.wasCalled.shouldBeTrue()
+        repository.storeWasCalled.shouldBeTrue()
         repository.lastCreateEvent.shouldBe(expected)
     }
 
@@ -40,7 +40,7 @@ class CreateEventTest {
     fun `create another event`() {
         val eventId = "anotherEventId"
         val repository = EventRepositoryDouble()
-        val expected = givenACreateEvent(eventId = eventId, reservationConfirm = false)
+        val expected = Given.aEvent(eventId = eventId, reservationConfirm = false)
         val useCase = CreateEventUseCase(
             IdGeneratorDouble(eventId),
             repository,
@@ -51,7 +51,7 @@ class CreateEventTest {
         val result = useCase.execute(givenACreateEventDto())
 
         result.shouldBe(eventId)
-        repository.wasCalled.shouldBeTrue()
+        repository.storeWasCalled.shouldBeTrue()
         repository.lastCreateEvent.shouldBe(expected)
     }
 
@@ -125,14 +125,6 @@ class CreateEventTest {
         subRepository.wasCalled.shouldBeTrue()
         result.shouldBeFalse()
     }
-
-    private fun givenACreateEvent(
-        eventId: String = "eventId",
-        playerId: String = "playerId",
-        subscriberId: String = "subscriberId",
-        date: String = "date",
-        reservationConfirm: Boolean = false
-    ) = CreateEvent(eventId, playerId, subscriberId, date, reservationConfirm)
 
     private fun givenACreateEventDto(
         playerId: String = "playerId",

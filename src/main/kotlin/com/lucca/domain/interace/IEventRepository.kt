@@ -1,9 +1,9 @@
 package com.lucca.domain.interace
 
-import com.lucca.domain.entity.CreateEvent
-import com.lucca.domain.entity.CreateSubscriber
+import com.lucca.domain.entity.Event
 
 interface IEventRepository {
-    fun store(createEvent: CreateEvent)
+    fun store(createEvent: Event)
+    fun get(eventId: String): Event
 
 }
