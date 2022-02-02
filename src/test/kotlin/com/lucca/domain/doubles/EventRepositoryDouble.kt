@@ -1,9 +1,12 @@
 package com.lucca.domain.doubles
 
+import com.lucca.delivery.dto.UpdateEventDto
 import com.lucca.domain.entity.Event
 import com.lucca.domain.interace.IEventRepository
 
-class EventRepositoryDouble(private var storedIds: List<String> = listOf()) : IEventRepository {
+class EventRepositoryDouble(
+    private var storedEvent: List<Event> = listOf()
+) : IEventRepository {
     lateinit var lastUpdateEvent: Event
     lateinit var lastCreateEvent: Event
 
@@ -14,9 +17,9 @@ class EventRepositoryDouble(private var storedIds: List<String> = listOf()) : IE
         lastCreateEvent = event
     }
 
-    override fun has(eventId: String): Boolean {
+    override fun has(event: Event): Boolean {
         wasCalled = true
-        return storedIds.any { it == eventId }
+        return storedEvent.any { it.eventId == event.eventId && it.playerId == event.playerId && it.subscriberId == event.subscriberId }
     }
 
     override fun update(event: Event) {

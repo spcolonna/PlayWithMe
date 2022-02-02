@@ -8,5 +8,6 @@ class UpdateEventUseCase(private val repository: IEventRepository) {
     fun execute(eventId: String, dto: UpdateEventDto) =
         repository.update(Builder.createEventFromUpdateDto(eventId, dto))
 
-    fun isContextValid(eventId: String) = repository.has(eventId)
+    fun isContextValid(eventId: String, dto: UpdateEventDto) =
+        repository.has(Builder.createEventFromUpdateDto(eventId, dto))
 }
