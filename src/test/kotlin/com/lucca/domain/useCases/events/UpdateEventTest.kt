@@ -26,7 +26,6 @@ class UpdateEventTest {
         repository.wasCalled.shouldBeTrue()
         repository.lastUpdateEvent.shouldBe(expected)
     }
-    //TODO cancel by subscriber, confirm by player
 
     @Test
     fun `validate event id`() {
