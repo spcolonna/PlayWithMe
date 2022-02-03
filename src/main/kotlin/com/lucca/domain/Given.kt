@@ -11,7 +11,7 @@ class Given {
             subscriberId: String = "subscriberId",
             date: String = "date",
             reservationConfirm: Boolean = false,
-            state: EventStates = EventStates.Confirmed
+            state: EventStates = EventStates.Created
         ) = Event(eventId, playerId, subscriberId, date, reservationConfirm, state)
     }
 }

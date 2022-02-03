@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.lucca.ApplicationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-03T20:20:58" hostname="sebas" time="1.312">
+  <properties/>
+  <testcase name="testRoot" classname="com.lucca.ApplicationTest" time="1.312"/>
+  <system-out><![CDATA[2022-02-03 17:20:59.153 [Test worker] INFO  ktor.test - Autoreload is disabled because the development mode is off.
+2022-02-03 17:20:59.161 [Test worker] INFO  ktor.test - Application started in 0.06 seconds.
+2022-02-03 17:20:59.584 [Test worker] INFO  c.l.d.providers.RepositoryProvider - Persistence type is REDIS
+2022-02-03 17:20:59.585 [Test worker] INFO  c.l.d.providers.RepositoryProvider - Connecting to redis instance...
+2022-02-03 17:20:59.630 [Test worker] DEBUG i.l.c.r.AddressResolverGroupProvider - Starting without optional netty's non-blocking DNS resolver library
+2022-02-03 17:20:59.633 [Test worker] DEBUG i.l.c.r.DefaultClientResources - -Dio.netty.eventLoopThreads: 12
+2022-02-03 17:20:59.639 [Test worker] DEBUG i.l.c.r.DefaultEventLoopGroupProvider - Creating executor io.netty.util.concurrent.DefaultEventExecutorGroup
+2022-02-03 17:20:59.701 [Test worker] DEBUG reactor.util.Loggers$LoggerFactory - Using Slf4j logging framework
+2022-02-03 17:20:59.704 [Test worker] DEBUG i.l.c.event.jfr.EventRecorderHolder - Starting with JFR support
+2022-02-03 17:20:59.773 [Test worker] DEBUG i.l.c.r.DefaultClientResources - LatencyUtils/HdrUtils are not available, metrics are disabled
+2022-02-03 17:20:59.779 [Test worker] DEBUG io.lettuce.core.RedisClient - Trying to get a Redis connection for: redis://***********@localhost
+2022-02-03 17:21:00.008 [Test worker] DEBUG i.l.core.resource.KqueueProvider - Starting without optional kqueue library
+2022-02-03 17:21:00.011 [Test worker] DEBUG i.l.core.resource.IOUringProvider - Starting without optional io_uring library
+2022-02-03 17:21:00.016 [Test worker] DEBUG i.l.core.resource.EpollProvider - Starting without optional epoll library
+2022-02-03 17:21:00.021 [Test worker] DEBUG i.l.c.r.DefaultEventLoopGroupProvider - Allocating executor io.netty.channel.nio.NioEventLoopGroup
+2022-02-03 17:21:00.021 [Test worker] DEBUG i.l.c.r.DefaultEventLoopGroupProvider - Creating executor io.netty.channel.nio.NioEventLoopGroup
+2022-02-03 17:21:00.026 [Test worker] DEBUG i.l.c.r.DefaultEventLoopGroupProvider - Adding reference to io.netty.channel.nio.NioEventLoopGroup@4addd881, existing ref count 0
+2022-02-03 17:21:00.076 [Test worker] DEBUG io.lettuce.core.RedisClient - Resolved SocketAddress localhost/<unresolved>:6379 using redis://***********@localhost
+2022-02-03 17:21:00.077 [Test worker] DEBUG io.lettuce.core.AbstractRedisClient - Connecting to Redis at localhost/<unresolved>:6379
+2022-02-03 17:21:00.122 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.CommandHandler - [channel=0xab827d15, [id: 0x56c79586] (inactive), epid=0x1, chid=0x1] channelRegistered()
+2022-02-03 17:21:00.155 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.CommandHandler - [channel=0xab827d15, /127.0.0.1:50491 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] write(ctx, AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command], promise)
+2022-02-03 17:21:00.157 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.CommandEncoder - [channel=0xab827d15, /127.0.0.1:50491 -> localhost/127.0.0.1:6379] writing command AsyncCommand [type=HELLO, output=GenericMapOutput [output=null, error='null'], commandType=io.lettuce.core.protocol.Command]
+2022-02-03 17:21:00.157 [lettuce-nioEventLoop-4-1] TRACE i.l.core.protocol.CommandEncoder - [channel=0xab827d15, /127.0.0.1:50491 -> localhost/127.0.0.1:6379] Sent: *5
+$5
+HELLO
+$1
+3
+$4
+AUTH
+$7
+default
+$11
+local_redis
+2022-02-03 17:21:00.161 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.CommandHandler - [channel=0xab827d15, /127.0.0.1:50491 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Received: 145 bytes, 1 commands in the stack
+2022-02-03 17:21:00.162 [lettuce-nioEventLoop-4-1] TRACE i.l.core.protocol.CommandHandler - [channel=0xab827d15, /127.0.0.1:50491 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Buffer: %7
+$6
+server
+$5
+redis
+$7
+version
+$5
+6.2.6
+$5
+proto
+:3
+$2
+id
+:35
+$4
+mode
+$10
+standalone
+$4
+role
+$6
+master
+$7
+modules
+*0
+2022-02-03 17:21:00.162 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.CommandHandler - [channel=0xab827d15, /127.0.0.1:50491 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Stack contains: 1 commands
+2022-02-03 17:21:00.168 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.RedisStateMachine - Decode done, empty stack: true
+2022-02-03 17:21:00.169 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.CommandHandler - [channel=0xab827d15, /127.0.0.1:50491 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] Completing command AsyncCommand [type=HELLO, output=GenericMapOutput [output={server=redis, version=6.2.6, proto=3, id=35, mode=standalone, role=master}, error='null'], commandType=io.lettuce.core.protocol.Command]
+2022-02-03 17:21:00.169 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.CommandHandler - [channel=0xab827d15, /127.0.0.1:50491 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelActive()
+2022-02-03 17:21:00.170 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.DefaultEndpoint - [channel=0xab827d15, /127.0.0.1:50491 -> localhost/127.0.0.1:6379, epid=0x1] activateEndpointAndExecuteBufferedCommands 0 command(s) buffered
+2022-02-03 17:21:00.170 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.DefaultEndpoint - [channel=0xab827d15, /127.0.0.1:50491 -> localhost/127.0.0.1:6379, epid=0x1] activating endpoint
+2022-02-03 17:21:00.170 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.DefaultEndpoint - [channel=0xab827d15, /127.0.0.1:50491 -> localhost/127.0.0.1:6379, epid=0x1] flushCommands()
+2022-02-03 17:21:00.170 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.DefaultEndpoint - [channel=0xab827d15, /127.0.0.1:50491 -> localhost/127.0.0.1:6379, epid=0x1] flushCommands() Flushing 0 commands
+2022-02-03 17:21:00.172 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.ConnectionWatchdog - [channel=0xab827d15, /127.0.0.1:50491 -> localhost/127.0.0.1:6379, last known addr=localhost/127.0.0.1:6379] channelActive()
+2022-02-03 17:21:00.172 [lettuce-nioEventLoop-4-1] DEBUG i.l.core.protocol.CommandHandler - [channel=0xab827d15, /127.0.0.1:50491 -> localhost/127.0.0.1:6379, epid=0x1, chid=0x1] channelActive() done
+2022-02-03 17:21:00.173 [lettuce-nioEventLoop-4-1] DEBUG io.lettuce.core.AbstractRedisClient - Connecting to Redis at localhost/<unresolved>:6379: Success
+2022-02-03 17:21:00.186 [Test worker] INFO  c.l.d.providers.RepositoryProvider - Connection with redis established
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
