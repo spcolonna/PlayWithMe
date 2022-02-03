@@ -1,12 +1,10 @@
 package com.lucca.domain
 
-import com.lucca.delivery.dto.CreateEventDto
-import com.lucca.delivery.dto.CreatePlayerDto
-import com.lucca.delivery.dto.CreateSubscriberDto
-import com.lucca.delivery.dto.UpdateEventDto
+import com.lucca.delivery.dto.*
 import com.lucca.domain.entity.Event
 import com.lucca.domain.entity.CreatePlayer
 import com.lucca.domain.entity.CreateSubscriber
+import com.lucca.domain.entity.Scheduler
 import com.lucca.domain.enums.EventStates
 
 class Builder {
@@ -22,5 +20,8 @@ class Builder {
 
         fun createEventFromUpdateDto(eventId: String, dto: UpdateEventDto) =
             Event(eventId, dto.playerId, dto.subscriberId, dto.date, dto.reservationConfirm, dto.state)
+
+        fun createSchedulerFromDto(schedulerId: String, dto: CreateSchedulerDto) =
+            Scheduler(schedulerId, dto.playerId, dto.availableDays, dto.availableHours)
     }
 }
