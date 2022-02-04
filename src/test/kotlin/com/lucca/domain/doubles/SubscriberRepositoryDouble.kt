@@ -18,7 +18,7 @@ class SubscriberRepositoryDouble(private val storedSubscribers: List<CreateSubsc
         return !storedSubscribers.any { it.mail == mail }
     }
 
-    override fun isSubscriberValid(subscriberId: String): Boolean {
+    override fun has(subscriberId: String): Boolean {
         wasCalled = true
         return storedSubscribers.any { it.id == subscriberId }
     }

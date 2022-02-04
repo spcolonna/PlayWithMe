@@ -6,5 +6,5 @@ import com.lucca.domain.entity.Event
 interface IEventRepository {
     fun store(event: Event)
     fun update(event: Event)
-    fun has(event: Event): Boolean
+    fun has(eventId: String): Boolean
 }

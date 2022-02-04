@@ -3,12 +3,16 @@ package com.lucca.domain.useCases.events
 import com.lucca.delivery.dto.UpdateEventDto
 import com.lucca.domain.Given
 import com.lucca.domain.doubles.EventRepositoryDouble
+import com.lucca.domain.doubles.PlayerRepositoryDouble
+import com.lucca.domain.doubles.SubscriberRepositoryDouble
+import com.lucca.domain.entity.CreatePlayer
+import com.lucca.domain.entity.CreateSubscriber
+import com.lucca.domain.entity.PlayEvent
 import com.lucca.domain.enums.EventStates
 import com.lucca.domain.useCase.events.UpdateEventUseCase
 import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.shouldBe
-import org.junit.Ignore
 import org.junit.Test
 
 class UpdateEventTest {
@@ -18,7 +22,7 @@ class UpdateEventTest {
         val eventId = "eventId"
         val repository = EventRepositoryDouble(storedEvent = listOf(Given.aEvent(eventId = eventId)))
         val updateEventDto = givenAUpdateEventDto(state = EventStates.CancelByPlayer)
-        val useCase = UpdateEventUseCase(repository)
+        val useCase = UpdateEventUseCase(repository, PlayerRepositoryDouble(), SubscriberRepositoryDouble())
         val expected = Given.aEvent(eventId = eventId, reservationConfirm = false, state = EventStates.CancelByPlayer)
 
         useCase.execute(eventId, updateEventDto)
@@ -31,7 +35,11 @@ class UpdateEventTest {
     fun `validate event id`() {
         val eventId = "validEventId"
         val repository = EventRepositoryDouble(storedEvent = listOf(Given.aEvent(eventId = eventId)))
-        val useCase = UpdateEventUseCase(repository)
+        val useCase = UpdateEventUseCase(
+            repository,
+            PlayerRepositoryDouble(storedPlayers = listOf(givenAPlayer())),
+            SubscriberRepositoryDouble(listOf(givenASubscriber()))
+        )
 
         val result = useCase.isContextValid(eventId, givenAUpdateEventDto())
 
@@ -42,7 +50,11 @@ class UpdateEventTest {
     @Test
     fun `invalid event id`() {
         val repository = EventRepositoryDouble(storedEvent = listOf(Given.aEvent()))
-        val useCase = UpdateEventUseCase(repository)
+        val useCase = UpdateEventUseCase(
+            repository,
+            PlayerRepositoryDouble(storedPlayers = listOf(givenAPlayer())),
+            SubscriberRepositoryDouble(listOf(givenASubscriber()))
+        )
 
         val result = useCase.isContextValid("invalidEventId", givenAUpdateEventDto())
 
@@ -52,53 +64,66 @@ class UpdateEventTest {
 
     @Test
     fun `validate player id`() {
-        val eventId = "validEventId"
         val playerId = "validPlayerId"
-        val dto = givenAUpdateEventDto(playerId = playerId)
-        val repository =
-            EventRepositoryDouble(storedEvent = listOf(Given.aEvent(eventId = eventId, playerId = playerId)))
-        val useCase = UpdateEventUseCase(repository)
+        val playerRepository = PlayerRepositoryDouble(storedPlayers = listOf(givenAPlayer(id = playerId)))
+        val useCase = UpdateEventUseCase(
+            EventRepositoryDouble(storedEvent = listOf(Given.aEvent())),
+            playerRepository,
+            SubscriberRepositoryDouble(listOf(givenASubscriber()))
+        )
 
-        val result = useCase.isContextValid(eventId, dto)
+        val result = useCase.isContextValid("eventId", givenAUpdateEventDto(playerId = playerId))
 
-        repository.wasCalled.shouldBeTrue()
+        playerRepository.wasCalled.shouldBeTrue()
         result.shouldBeTrue()
     }
 
     @Test
     fun `invalid player id`() {
-        val repository = EventRepositoryDouble(storedEvent = listOf(Given.aEvent()))
-        val useCase = UpdateEventUseCase(repository)
+        val playerRepository = PlayerRepositoryDouble(storedPlayers = listOf(givenAPlayer()))
+        val useCase = UpdateEventUseCase(
+            EventRepositoryDouble(storedEvent = listOf(Given.aEvent())),
+            playerRepository,
+            SubscriberRepositoryDouble()
+        )
 
         val result = useCase.isContextValid("eventId", givenAUpdateEventDto(playerId = "invalidPlayerId"))
 
-        repository.wasCalled.shouldBeTrue()
+        playerRepository.wasCalled.shouldBeTrue()
         result.shouldBeFalse()
     }
 
     @Test
     fun `validate subscriber id`() {
-        val eventId = "validEventId"
         val subscriberId = "validSubscriberId"
         val dto = givenAUpdateEventDto(subscriberId = subscriberId)
-        val repository =
-            EventRepositoryDouble(storedEvent = listOf(Given.aEvent(eventId = eventId, subscriberId = subscriberId)))
-        val useCase = UpdateEventUseCase(repository)
+        val subscriberRepository =
+            SubscriberRepositoryDouble(storedSubscribers = listOf(givenASubscriber(id = subscriberId)))
+        val useCase = UpdateEventUseCase(
+            EventRepositoryDouble(storedEvent = listOf(Given.aEvent())),
+            PlayerRepositoryDouble(storedPlayers = listOf(givenAPlayer())),
+            subscriberRepository
+        )
 
-        val result = useCase.isContextValid(eventId, dto)
+        val result = useCase.isContextValid("eventId", dto)
 
-        repository.wasCalled.shouldBeTrue()
+        subscriberRepository.wasCalled.shouldBeTrue()
         result.shouldBeTrue()
     }
 
     @Test
     fun `invalid subscriber id`() {
-        val repository = EventRepositoryDouble(storedEvent = listOf(Given.aEvent()))
-        val useCase = UpdateEventUseCase(repository)
+        val subscriberRepository =
+            SubscriberRepositoryDouble(storedSubscribers = listOf(givenASubscriber()))
+        val useCase = UpdateEventUseCase(
+            EventRepositoryDouble(storedEvent = listOf(Given.aEvent())),
+            PlayerRepositoryDouble(storedPlayers = listOf(givenAPlayer())),
+            subscriberRepository
+        )
 
         val result = useCase.isContextValid("eventId", givenAUpdateEventDto(subscriberId = "invalidSubscriberId"))
 
-        repository.wasCalled.shouldBeTrue()
+        subscriberRepository.wasCalled.shouldBeTrue()
         result.shouldBeFalse()
     }
 
@@ -109,5 +134,22 @@ class UpdateEventTest {
         reservationConfirm: Boolean = false,
         state: EventStates = EventStates.Created
     ) = UpdateEventDto(playerId, subscriberId, date, reservationConfirm, state)
+
+    private fun givenAPlayer(
+        id: String = "playerId",
+        mail: String = "mail",
+        password: String = "password",
+        name: String = "name",
+        accountNumber: String = "accountNumber",
+        events: List<PlayEvent> = listOf()
+    ) = CreatePlayer(id, mail, password, name, accountNumber, events)
+
+    private fun givenASubscriber(
+        id: String = "subscriberId",
+        mail: String = "mail",
+        password: String = "password",
+        name: String = "name",
+        birthDate: String = "accountNumber"
+    ) = CreateSubscriber(id, mail, password, name, birthDate)
 }
 

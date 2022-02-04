@@ -20,6 +20,6 @@ class CreateEventUseCase(
     }
 
     fun isContextValid(dto: CreateEventDto) =
-        playerRepository.isPlayerValid(dto.playerId) && subscriberRepository.isSubscriberValid(dto.subscriberId)
+        playerRepository.has(dto.playerId) && subscriberRepository.has(dto.subscriberId)
 
 }

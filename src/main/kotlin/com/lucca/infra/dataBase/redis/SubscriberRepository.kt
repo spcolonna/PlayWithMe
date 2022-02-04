@@ -24,7 +24,7 @@ class SubscriberRepository(
             service.has(connection,mail)
         }
 
-    override fun isSubscriberValid(subscriberId: String): Boolean {
+    override fun has(subscriberId: String): Boolean {
         TODO("Not yet implemented")
     }
 

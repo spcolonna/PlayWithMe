@@ -18,18 +18,38 @@ class CreateScheduleUseCaseTest {
         val playerId = "playerId"
         val availableDays = listOf<DaysEnum>()
         val availableHours = listOf<Int>()
-        val useCase = givenACreateScheduleUseCase(scheduleId)
+        val repository = SchedulerRepositoryDouble()
+        val useCase = CreateScheduleUseCase(repository, IdGeneratorDouble(scheduleId))
         val expected = givenAScheduler(scheduleId, playerId, availableDays, availableHours)
 
         val result = useCase.execute(givenACreateSchedulerDto(playerId, availableDays, availableHours))
 
-        SchedulerRepositoryDouble().wasCalled.shouldBeTrue()
+        repository.wasCalled.shouldBeTrue()
         result.shouldBe(scheduleId)
-        SchedulerRepositoryDouble().lastScheduleStored.shouldBe(expected)
+        repository.lastScheduleStored.shouldBe(expected)
     }
 
-    private fun givenACreateScheduleUseCase(scheduleId: String) =
-        CreateScheduleUseCase(SchedulerRepositoryDouble(), IdGeneratorDouble(scheduleId))
+    @Test
+    fun `create schedule from another player`() {
+        val scheduleId = "anotherScheduleId"
+        val playerId = "anotherPlayerId"
+        val availableDays = listOf(DaysEnum.Monday, DaysEnum.Wednesday, DaysEnum.Friday)
+        val availableHours = listOf(15,16,17)
+        val repository = SchedulerRepositoryDouble()
+        val useCase = CreateScheduleUseCase(repository, IdGeneratorDouble(scheduleId))
+        val expected = givenAScheduler(scheduleId, playerId, availableDays, availableHours)
+
+        val result = useCase.execute(givenACreateSchedulerDto(playerId, availableDays, availableHours))
+
+        repository.wasCalled.shouldBeTrue()
+        result.shouldBe(scheduleId)
+        repository.lastScheduleStored.shouldBe(expected)
+    }
+
+    @Test
+    fun `validate player id`(){
+
+    }
 
     private fun givenACreateSchedulerDto(
         playerId: String = "playerId",

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.lucca.domain.useCases.events.CreateEventTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-02-04T11:43:48" hostname="sebas" time="0.008">
+  <properties/>
+  <testcase name="validate exist playerId" classname="com.lucca.domain.useCases.events.CreateEventTest" time="0.003"/>
+  <testcase name="create event" classname="com.lucca.domain.useCases.events.CreateEventTest" time="0.004"/>
+  <testcase name="create another event" classname="com.lucca.domain.useCases.events.CreateEventTest" time="0.0"/>
+  <testcase name="invalid exist playerId" classname="com.lucca.domain.useCases.events.CreateEventTest" time="0.0"/>
+  <testcase name="invalid exist subscriberId" classname="com.lucca.domain.useCases.events.CreateEventTest" time="0.0"/>
+  <testcase name="validate exist subscriberId" classname="com.lucca.domain.useCases.events.CreateEventTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

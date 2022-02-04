@@ -7,6 +7,7 @@ class SchedulerRepositoryDouble : ISchedulerRepository {
 
     lateinit var lastScheduleStored: Scheduler
     var wasCalled: Boolean = false
+
     override fun store(scheduler: Scheduler) {
         wasCalled = true
         lastScheduleStored = scheduler

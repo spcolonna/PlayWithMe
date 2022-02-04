@@ -17,13 +17,13 @@ class EventRepositoryDouble(
         lastCreateEvent = event
     }
 
-    override fun has(event: Event): Boolean {
-        wasCalled = true
-        return storedEvent.any { it.eventId == event.eventId && it.playerId == event.playerId && it.subscriberId == event.subscriberId }
-    }
-
     override fun update(event: Event) {
         wasCalled = true
         lastUpdateEvent = event
+    }
+
+    override fun has(eventId: String): Boolean {
+        wasCalled = true
+        return storedEvent.any { it.eventId == eventId }
     }
 }

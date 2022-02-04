@@ -12,7 +12,7 @@ class PlayerRepositoryDouble(private val storedPlayers: List<CreatePlayer> = lis
         lastCreatePlayer = createPlayer
     }
 
-    override fun isPlayerValid(playerId: String): Boolean {
+    override fun has(playerId: String): Boolean {
         wasCalled = true
         return storedPlayers.any { it.id == playerId }
     }
