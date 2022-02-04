@@ -37,8 +37,8 @@ class UpdateEventTest {
         val repository = EventRepositoryDouble(storedEvent = listOf(Given.aEvent(eventId = eventId)))
         val useCase = UpdateEventUseCase(
             repository,
-            PlayerRepositoryDouble(storedPlayers = listOf(givenAPlayer())),
-            SubscriberRepositoryDouble(listOf(givenASubscriber()))
+            PlayerRepositoryDouble(storedPlayers = listOf(givenACreatePlayer())),
+            SubscriberRepositoryDouble(listOf(givenACreateSubscriber()))
         )
 
         val result = useCase.isContextValid(eventId, givenAUpdateEventDto())
@@ -52,8 +52,8 @@ class UpdateEventTest {
         val repository = EventRepositoryDouble(storedEvent = listOf(Given.aEvent()))
         val useCase = UpdateEventUseCase(
             repository,
-            PlayerRepositoryDouble(storedPlayers = listOf(givenAPlayer())),
-            SubscriberRepositoryDouble(listOf(givenASubscriber()))
+            PlayerRepositoryDouble(storedPlayers = listOf(givenACreatePlayer())),
+            SubscriberRepositoryDouble(listOf(givenACreateSubscriber()))
         )
 
         val result = useCase.isContextValid("invalidEventId", givenAUpdateEventDto())
@@ -65,11 +65,11 @@ class UpdateEventTest {
     @Test
     fun `validate player id`() {
         val playerId = "validPlayerId"
-        val playerRepository = PlayerRepositoryDouble(storedPlayers = listOf(givenAPlayer(id = playerId)))
+        val playerRepository = PlayerRepositoryDouble(storedPlayers = listOf(givenACreatePlayer(id = playerId)))
         val useCase = UpdateEventUseCase(
             EventRepositoryDouble(storedEvent = listOf(Given.aEvent())),
             playerRepository,
-            SubscriberRepositoryDouble(listOf(givenASubscriber()))
+            SubscriberRepositoryDouble(listOf(givenACreateSubscriber()))
         )
 
         val result = useCase.isContextValid("eventId", givenAUpdateEventDto(playerId = playerId))
@@ -80,7 +80,7 @@ class UpdateEventTest {
 
     @Test
     fun `invalid player id`() {
-        val playerRepository = PlayerRepositoryDouble(storedPlayers = listOf(givenAPlayer()))
+        val playerRepository = PlayerRepositoryDouble(storedPlayers = listOf(givenACreatePlayer()))
         val useCase = UpdateEventUseCase(
             EventRepositoryDouble(storedEvent = listOf(Given.aEvent())),
             playerRepository,
@@ -98,10 +98,10 @@ class UpdateEventTest {
         val subscriberId = "validSubscriberId"
         val dto = givenAUpdateEventDto(subscriberId = subscriberId)
         val subscriberRepository =
-            SubscriberRepositoryDouble(storedSubscribers = listOf(givenASubscriber(id = subscriberId)))
+            SubscriberRepositoryDouble(storedSubscribers = listOf(givenACreateSubscriber(id = subscriberId)))
         val useCase = UpdateEventUseCase(
             EventRepositoryDouble(storedEvent = listOf(Given.aEvent())),
-            PlayerRepositoryDouble(storedPlayers = listOf(givenAPlayer())),
+            PlayerRepositoryDouble(storedPlayers = listOf(givenACreatePlayer())),
             subscriberRepository
         )
 
@@ -114,10 +114,10 @@ class UpdateEventTest {
     @Test
     fun `invalid subscriber id`() {
         val subscriberRepository =
-            SubscriberRepositoryDouble(storedSubscribers = listOf(givenASubscriber()))
+            SubscriberRepositoryDouble(storedSubscribers = listOf(givenACreateSubscriber()))
         val useCase = UpdateEventUseCase(
             EventRepositoryDouble(storedEvent = listOf(Given.aEvent())),
-            PlayerRepositoryDouble(storedPlayers = listOf(givenAPlayer())),
+            PlayerRepositoryDouble(storedPlayers = listOf(givenACreatePlayer())),
             subscriberRepository
         )
 
@@ -135,7 +135,7 @@ class UpdateEventTest {
         state: EventStates = EventStates.Created
     ) = UpdateEventDto(playerId, subscriberId, date, reservationConfirm, state)
 
-    private fun givenAPlayer(
+    private fun givenACreatePlayer(
         id: String = "playerId",
         mail: String = "mail",
         password: String = "password",
@@ -144,7 +144,7 @@ class UpdateEventTest {
         events: List<PlayEvent> = listOf()
     ) = CreatePlayer(id, mail, password, name, accountNumber, events)
 
-    private fun givenASubscriber(
+    private fun givenACreateSubscriber(
         id: String = "subscriberId",
         mail: String = "mail",
         password: String = "password",
