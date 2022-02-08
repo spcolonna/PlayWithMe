@@ -15,13 +15,14 @@ class SubscriberRepository(
 
     override fun store(createSubscriber: CreateSubscriber) {
         runBlocking {
-            service.store(connection, createBaseKeyWith(createSubscriber.id), createSubscriber)
+            service.store(createBaseKeyWith(createSubscriber.id), createSubscriber)
+            service.store(createBaseKeyWith(createSubscriber.mail), createSubscriber.id)
         }
     }
 
     override fun isMailAvailable(mail: String): Boolean =
         runBlocking {
-            service.has(connection,mail)
+            !service.has(createBaseKeyWith(mail))
         }
 
     override fun has(subscriberId: String): Boolean {

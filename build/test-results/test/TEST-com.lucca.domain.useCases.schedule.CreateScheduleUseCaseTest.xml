@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.lucca.domain.useCases.schedule.CreateScheduleUseCaseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-02-04T11:55:06" hostname="sebas" time="0.209">
+<testsuite name="com.lucca.domain.useCases.schedule.CreateScheduleUseCaseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-02-08T17:40:44" hostname="sebas" time="0.205">
   <properties/>
-  <testcase name="create schedule from player" classname="com.lucca.domain.useCases.schedule.CreateScheduleUseCaseTest" time="0.208"/>
+  <testcase name="create schedule from player" classname="com.lucca.domain.useCases.schedule.CreateScheduleUseCaseTest" time="0.204"/>
   <testcase name="validate player id" classname="com.lucca.domain.useCases.schedule.CreateScheduleUseCaseTest" time="0.0"/>
   <testcase name="create schedule from another player" classname="com.lucca.domain.useCases.schedule.CreateScheduleUseCaseTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>

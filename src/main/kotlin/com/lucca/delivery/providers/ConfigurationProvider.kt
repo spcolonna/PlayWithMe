@@ -11,7 +11,6 @@ object ConfigurationProvider {
     data class Configuration @OptIn(KtorExperimentalAPI::class) constructor(
         val app: AppConfig,
         val http: GatewaysProvider.HttpEngineConfiguration,
-        val platformUrl: String,
         val persistence: RepositoryProvider.PersistenceConfiguration
     )
 

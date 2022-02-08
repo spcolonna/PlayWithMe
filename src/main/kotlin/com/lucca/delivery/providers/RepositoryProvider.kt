@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory
 
 object RepositoryProvider {
     private val logger = LoggerFactory.getLogger(this::class.java)
-    var connected: Boolean = false
 
     data class PersistenceConfiguration(
         val type: PersistenceType,
