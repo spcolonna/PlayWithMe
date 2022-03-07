@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="domain.vendor.CreateVendorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-07T21:10:03" hostname="mbpdesebastian" time="0.535">
+  <properties/>
+  <testcase name="create vendor()" classname="domain.vendor.CreateVendorTest" time="0.535"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
