@@ -5,7 +5,7 @@ import playwithyou.lucca.domain.entity.Vendor
 
 class Builder {
     companion object{
-        fun createVendorFromDto(id: String, dto: VendorDto) = Vendor(id, dto.name, dto.phone, dto.mail)
+        fun createVendorFromDto(id: String, dto: VendorDto) = Vendor(id, dto.name, dto.phone, dto.mail, true)
 
     }
 }

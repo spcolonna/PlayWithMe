@@ -1,4 +1,4 @@
-package domain.vendor
+package domain.useCases.vendor
 
 import domain.doubles.IdGeneratorDouble
 import domain.doubles.VendorRepositoryDouble
@@ -19,7 +19,24 @@ class CreateVendorTest {
         val repository = VendorRepositoryDouble()
         val idGenerator = IdGeneratorDouble(expectedId)
         val useCase = CreateVendorUseCase(idGenerator, repository)
-        
+
+        val result = useCase.execute(vendorDto)
+
+        result.shouldBe(expectedId)
+        repository.wasCalled.shouldBeTrue()
+        repository.lastVendorStored.shouldBe(expectedVendor)
+    }
+
+    @Test
+    fun `create another vendor`() {
+        val expectedId = "anotherVendorId"
+        val expectedVendor = Given.aVendor(id = expectedId)
+
+        val vendorDto = Given.aVendorDto()
+        val repository = VendorRepositoryDouble()
+        val idGenerator = IdGeneratorDouble(expectedId)
+        val useCase = CreateVendorUseCase(idGenerator, repository)
+
         val result = useCase.execute(vendorDto)
 
         result.shouldBe(expectedId)

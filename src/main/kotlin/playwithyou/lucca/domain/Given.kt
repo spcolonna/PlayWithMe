@@ -15,7 +15,8 @@ class Given {
             id: String = "id",
             name: String = "name",
             phone: String = "phone",
-            mail: String = "mail"
-        ) = Vendor(id, name, phone, mail)
+            mail: String = "mail",
+            activate: Boolean = true
+        ) = Vendor(id, name, phone, mail, activate)
     }
 }
