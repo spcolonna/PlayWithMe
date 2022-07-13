@@ -9,8 +9,8 @@ class CreateSellerUseCase(private val idGenerator: IIdGenerator, private val rep
 
     fun execute(dto: VendorDto): String {
         val id = idGenerator.generate()
-        val vendor = Builder.createVendorFromDto(id, dto)
-        repository.store(vendor)
+        val seller = Builder.createSellerFromDto(id, dto)
+        repository.store(seller)
         return id
     }
 

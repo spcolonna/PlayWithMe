@@ -1,6 +1,9 @@
 package playwithyou.lucca.domain
 
+import playwithyou.lucca.delivery.dto.HouseDto
 import playwithyou.lucca.delivery.dto.VendorDto
+import playwithyou.lucca.domain.entity.Coordinates
+import playwithyou.lucca.domain.entity.House
 import playwithyou.lucca.domain.entity.Seller
 
 class Given {
@@ -18,5 +21,21 @@ class Given {
             mail: String = "mail",
             activate: Boolean = true
         ) = Seller(id, name, phone, mail, activate)
+
+        fun aHouseDto(
+            coordinates: Coordinates = Coordinates(0f, 0f),
+            houseDimension: Int = 0,
+            address: String = "En un lugar de la mancha",
+            price: Int = 0
+        ) = HouseDto(coordinates, houseDimension, address, price)
+
+        fun aHouse(
+            houseId: String = "id",
+            coordinates: Coordinates = Coordinates(0f, 0f),
+            houseDimension: Int = 0,
+            address: String = "En un lugar de la mancha",
+            price: Int = 0
+        ) = House(houseId, coordinates, houseDimension, address, price)
     }
 }
+

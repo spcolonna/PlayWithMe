@@ -13,18 +13,18 @@ class CreateSellerTest {
     @Test
     fun `create seller`() {
         val expectedId = "sellerId"
-        val expectedVendor = Given.aSeller(id = expectedId)
+        val expectedSeller = Given.aSeller(id = expectedId)
 
-        val vendorDto = Given.aSellerDto()
+        val sellerDto = Given.aSellerDto()
         val repository = SellerRepositoryDouble()
         val idGenerator = IdGeneratorDouble(expectedId)
         val useCase = CreateSellerUseCase(idGenerator, repository)
 
-        val result = useCase.execute(vendorDto)
+        val result = useCase.execute(sellerDto)
 
         result.shouldBe(expectedId)
         repository.wasCalled.shouldBeTrue()
-        repository.lastVendorStored.shouldBe(expectedVendor)
+        repository.lastVendorStored.shouldBe(expectedSeller)
     }
 
     @Test
