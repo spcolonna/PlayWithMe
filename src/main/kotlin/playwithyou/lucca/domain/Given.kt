@@ -1,22 +1,22 @@
 package playwithyou.lucca.domain
 
 import playwithyou.lucca.delivery.dto.VendorDto
-import playwithyou.lucca.domain.entity.Vendor
+import playwithyou.lucca.domain.entity.Seller
 
 class Given {
     companion object {
-        fun aVendorDto(
+        fun aSellerDto(
             name: String = "name",
             phone: String = "phone",
             mail: String = "mail"
         ) = VendorDto(name, phone, mail)
 
-        fun aVendor(
+        fun aSeller(
             id: String = "id",
             name: String = "name",
             phone: String = "phone",
             mail: String = "mail",
             activate: Boolean = true
-        ) = Vendor(id, name, phone, mail, activate)
+        ) = Seller(id, name, phone, mail, activate)
     }
 }
