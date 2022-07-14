@@ -12,15 +12,15 @@ class CreateHouseTest {
 
     @Test
     fun `create house`() {
-        var houseId = "houseId"
-        var expectedHouse = Given.aHouse(houseId)
+        val houseId = "houseId"
+        val expectedHouse = Given.aHouse(houseId)
 
-        var dto = Given.aHouseDto()
-        var idGenerator = IdGeneratorDouble(houseId)
-        var repository = HouseRepositoryDouble()
-        var useCase = CreateHouse(repository, idGenerator)
+        val dto = Given.aHouseDto()
+        val idGenerator = IdGeneratorDouble(houseId)
+        val repository = HouseRepositoryDouble()
+        val useCase = CreateHouse(repository, idGenerator)
 
-        var result = useCase.execute(dto)
+        val result = useCase.execute(dto)
 
         result.shouldBe(houseId)
         repository.lastHouseCalled.shouldBe(expectedHouse)
@@ -28,15 +28,15 @@ class CreateHouseTest {
 
     @Test
     fun `create another house`() {
-        var houseId = "anotherHouseId"
-        var expectedHouse = Given.aHouse(houseId)
+        val houseId = "anotherHouseId"
+        val expectedHouse = Given.aHouse(houseId)
 
-        var dto = Given.aHouseDto()
-        var idGenerator = IdGeneratorDouble(houseId)
-        var repository = HouseRepositoryDouble()
-        var useCase = CreateHouse(repository, idGenerator)
+        val dto = Given.aHouseDto()
+        val idGenerator = IdGeneratorDouble(houseId)
+        val repository = HouseRepositoryDouble()
+        val useCase = CreateHouse(repository, idGenerator)
 
-        var result = useCase.execute(dto)
+        val result = useCase.execute(dto)
 
         result.shouldBe(houseId)
         repository.lastHouseCalled.shouldBe(expectedHouse)
@@ -44,16 +44,16 @@ class CreateHouseTest {
 
     @Test
     fun `create house with data`(){
-        var coordinates = Coordinates(1f,1f)
+        val coordinates = Coordinates(1.0, 1.0)
         val houseId = "id"
-        var expectedHouse = Given.aHouse(houseId, coordinates, 25, "address", 89000)
+        val expectedHouse = Given.aHouse(houseId, coordinates, 25, "address", 89000)
 
-        var dto = Given.aHouseDto(coordinates, 25, "address", 89000)
-        var idGenerator = IdGeneratorDouble(houseId)
-        var repository = HouseRepositoryDouble()
-        var useCase = CreateHouse(repository, idGenerator)
+        val dto = Given.aHouseDto(coordinates, 25, "address", 89000)
+        val idGenerator = IdGeneratorDouble(houseId)
+        val repository = HouseRepositoryDouble()
+        val useCase = CreateHouse(repository, idGenerator)
 
-        var result = useCase.execute(dto)
+        val result = useCase.execute(dto)
 
         result.shouldBe(houseId)
         repository.lastHouseCalled.shouldBe(expectedHouse)

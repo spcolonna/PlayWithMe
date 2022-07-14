@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="domain.useCases.house.CreateHouseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-07-13T20:55:41" hostname="192.168.1.2" time="0.532">
-  <properties/>
-  <testcase name="create house()" classname="domain.useCases.house.CreateHouseTest" time="0.529"/>
-  <testcase name="create another house()" classname="domain.useCases.house.CreateHouseTest" time="0.001"/>
-  <testcase name="create house with data()" classname="domain.useCases.house.CreateHouseTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

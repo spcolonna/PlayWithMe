@@ -23,7 +23,7 @@ class Given {
         ) = Seller(id, name, phone, mail, activate)
 
         fun aHouseDto(
-            coordinates: Coordinates = Coordinates(0f, 0f),
+            coordinates: Coordinates = Coordinates(0.0, 0.0),
             houseDimension: Int = 0,
             address: String = "En un lugar de la mancha",
             price: Int = 0
@@ -31,7 +31,7 @@ class Given {
 
         fun aHouse(
             houseId: String = "id",
-            coordinates: Coordinates = Coordinates(0f, 0f),
+            coordinates: Coordinates = Coordinates(0.0, 0.0),
             houseDimension: Int = 0,
             address: String = "En un lugar de la mancha",
             price: Int = 0
