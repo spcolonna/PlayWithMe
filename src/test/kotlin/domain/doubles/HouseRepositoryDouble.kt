@@ -11,6 +11,10 @@ class HouseRepositoryDouble(houses: List<House> = listOf()) : IHouseRepositoryDo
         lastHouseCalled = house
     }
 
-    override fun getHousesWithin(maxLatitude: Double, minLatitude: Double, maxLongitude: Double, minLongitude: Double) =
-        storedHouses.filter { it.coordinates.latitude in maxLatitude..minLatitude && it.coordinates.longitude in maxLongitude..minLongitude }
+    override fun getHousesWithin(
+        maxLatitude: Double,
+        minLatitude: Double,
+        maxLongitude: Double,
+        minLongitude: Double
+    ) = storedHouses.filter { it.coordinates.latitude in minLatitude..maxLatitude && it.coordinates.longitude in minLongitude..maxLatitude }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="domain.useCases.seller.CreateSellerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-07-19T11:41:33" hostname="192.168.1.2" time="0.476">
+<testsuite name="domain.useCases.seller.CreateSellerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-07-19T12:05:20" hostname="192.168.1.2" time="0.787">
   <properties/>
-  <testcase name="create seller()" classname="domain.useCases.seller.CreateSellerTest" time="0.475"/>
+  <testcase name="create seller()" classname="domain.useCases.seller.CreateSellerTest" time="0.784"/>
   <testcase name="create another seller()" classname="domain.useCases.seller.CreateSellerTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

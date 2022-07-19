@@ -4,6 +4,11 @@ import playwithyou.lucca.domain.entity.House
 
 interface IHouseRepositoryDouble {
     fun store(house: House)
-    fun getHousesWithin(latitude: Double, longitude: Double, leftBorder: Double, rightBorder: Double): List<House>
+    fun getHousesWithin(
+        maxLatitude: Double,
+        minLatitude: Double,
+        maxLongitude: Double,
+        minLongitude: Double
+    ): List<House>
 
 }
