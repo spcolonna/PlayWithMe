@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="domain.useCases.house.GetHousesAroundTest" tests="3" skipped="0" failures="3" errors="0" timestamp="2022-07-14T12:08:41" hostname="192.168.1.2" time="0.066">
+<testsuite name="domain.useCases.house.GetHousesAroundTest" tests="3" skipped="0" failures="3" errors="0" timestamp="2022-07-19T11:41:34" hostname="192.168.1.2" time="0.006">
   <properties/>
-  <testcase name="get house around()" classname="domain.useCases.house.GetHousesAroundTest" time="0.041">
+  <testcase name="get house around()" classname="domain.useCases.house.GetHousesAroundTest" time="0.004">
     <failure message="java.util.NoSuchElementException: List is empty." type="java.util.NoSuchElementException">java.util.NoSuchElementException: List is empty.
 	at kotlin.collections.CollectionsKt___CollectionsKt.first(_Collections.kt:212)
 	at domain.useCases.house.GetHousesAroundTest.get house around(GetHousesAroundTest.kt:22)
@@ -193,7 +193,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="get only 3m house around()" classname="domain.useCases.house.GetHousesAroundTest" time="0.021">
+  <testcase name="get only 3m house around()" classname="domain.useCases.house.GetHousesAroundTest" time="0.0">
     <failure message="java.util.NoSuchElementException: List is empty." type="java.util.NoSuchElementException">java.util.NoSuchElementException: List is empty.
 	at kotlin.collections.CollectionsKt___CollectionsKt.first(_Collections.kt:212)
 	at domain.useCases.house.GetHousesAroundTest.get only 3m house around(GetHousesAroundTest.kt:47)

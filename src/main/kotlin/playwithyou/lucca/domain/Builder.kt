@@ -10,6 +10,7 @@ class Builder {
         fun createSellerFromDto(id: String, dto: VendorDto) = Seller(id, dto.name, dto.phone, dto.mail, true)
         fun createHouseFromDto(id: String, dto: HouseDto) = House(
             id,
+            dto.sellerId,
             dto.coordinates,
             dto.houseDimension,
             dto.address,
