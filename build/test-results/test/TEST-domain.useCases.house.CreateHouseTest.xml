@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="domain.useCases.house.CreateHouseTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-07-19T12:05:20" hostname="192.168.1.2" time="0.023">
+<testsuite name="domain.useCases.house.CreateHouseTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-07-20T20:33:22" hostname="192.168.1.2" time="0.013">
   <properties/>
-  <testcase name="validate not exist seller id()" classname="domain.useCases.house.CreateHouseTest" time="0.006"/>
+  <testcase name="validate not exist seller id()" classname="domain.useCases.house.CreateHouseTest" time="0.004"/>
   <testcase name="not create house with not exist seller()" classname="domain.useCases.house.CreateHouseTest" time="0.001"/>
-  <testcase name="validate exist seller id()" classname="domain.useCases.house.CreateHouseTest" time="0.001"/>
-  <testcase name="create house()" classname="domain.useCases.house.CreateHouseTest" time="0.006"/>
-  <testcase name="create another house()" classname="domain.useCases.house.CreateHouseTest" time="0.001"/>
+  <testcase name="validate exist seller id()" classname="domain.useCases.house.CreateHouseTest" time="0.0"/>
+  <testcase name="create house()" classname="domain.useCases.house.CreateHouseTest" time="0.003"/>
+  <testcase name="create another house()" classname="domain.useCases.house.CreateHouseTest" time="0.0"/>
   <testcase name="create house with data()" classname="domain.useCases.house.CreateHouseTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

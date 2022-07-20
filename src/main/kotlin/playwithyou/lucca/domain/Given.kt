@@ -1,7 +1,7 @@
 package playwithyou.lucca.domain
 
 import playwithyou.lucca.delivery.dto.HouseDto
-import playwithyou.lucca.delivery.dto.VendorDto
+import playwithyou.lucca.delivery.dto.SellerDto
 import playwithyou.lucca.domain.entity.Coordinates
 import playwithyou.lucca.domain.entity.House
 import playwithyou.lucca.domain.entity.Seller
@@ -12,7 +12,7 @@ class Given {
             name: String = "name",
             phone: String = "phone",
             mail: String = "mail"
-        ) = VendorDto(name, phone, mail)
+        ) = SellerDto(name, phone, mail)
 
         fun aSeller(
             id: String = "id",

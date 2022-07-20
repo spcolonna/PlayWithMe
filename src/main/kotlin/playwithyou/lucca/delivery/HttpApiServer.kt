@@ -6,8 +6,8 @@ import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import org.slf4j.LoggerFactory
 import playwithyou.lucca.delivery.`interface`.Handler
-import playwithyou.lucca.delivery.presenter.SubscriberPresenter
-import playwithyou.lucca.delivery.handler.SubscribersHandler
+import playwithyou.lucca.delivery.presenter.SellerPresenter
+import playwithyou.lucca.delivery.handler.SellersHandler
 
 class HttpApiServer {
     private val logger = LoggerFactory.getLogger(this::class.java)
@@ -30,7 +30,7 @@ class HttpApiServer {
 
     private fun getHandlers(): List<Handler> {
         return listOf(
-            SubscribersHandler(SubscriberPresenter())
+            SellersHandler(SellerPresenter())
         )
     }
 }

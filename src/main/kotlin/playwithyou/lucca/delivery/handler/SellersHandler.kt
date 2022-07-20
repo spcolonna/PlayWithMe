@@ -4,15 +4,15 @@ import io.ktor.application.*
 import io.ktor.request.*
 import io.ktor.routing.*
 import playwithyou.lucca.delivery.`interface`.Handler
-import playwithyou.lucca.delivery.presenter.SubscriberPresenter
+import playwithyou.lucca.delivery.presenter.SellerPresenter
 
-class SubscribersHandler(private val presenter: SubscriberPresenter):Handler {
+class SellersHandler(private val presenter: SellerPresenter) : Handler {
     private lateinit var application: Application
 
-    override fun routing(a: Application) {
-        application = a
-        a.routing {
-            route("/subscribers"){
+    override fun routing(app: Application) {
+        application = app
+        app.routing {
+            route("/sellers") {
                 post {
                     presenter.register(call.receive())
                 }

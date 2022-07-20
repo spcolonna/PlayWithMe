@@ -1,8 +1,9 @@
 package playwithyou.lucca.delivery.presenter
 
-class SubscriberPresenter {
+
+class SellerPresenter {
     fun register(receive: Any) {
-        val a = receive
+        println("llegue")
     }
 
 }
