@@ -1,14 +1,17 @@
 plugins {
+    id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.6.10'
     id 'application'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.4.32'
 }
 
 group = 'me.spcolonna'
 version = '1.0-SNAPSHOT'
 
 ext {
-    kotestAssertions = "4.6.1"
-    ktorVersion = "1.6.7"
+    kotestAssertions = '5.3.1'
+    ktorVersion = '2.0.2'
+    kotlinxJsonVersion = '1.1.0'
 }
 
 repositories {
@@ -17,9 +20,9 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
-    implementation 'org.codehaus.groovy:groovy-all:3.0.5'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+    implementation 'org.codehaus.groovy:groovy-all:3.0.11'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 
     testImplementation("io.kotest:kotest-assertions-core-jvm:$kotestAssertions")
 
@@ -29,6 +32,17 @@ dependencies {
     implementation "io.ktor:ktor-client-core:$ktorVersion"
     implementation "io.ktor:ktor-client-apache:$ktorVersion"
     implementation "io.ktor:ktor-client-jetty:$ktorVersion"
+
+    //JSON
+    implementation "io.ktor:ktor-client-json:$ktorVersion"
+    implementation "io.ktor:ktor-client-serialization-jvm:$ktorVersion"
+    implementation 'io.ktor:ktor-serialization:2.0.2'
+    implementation 'io.ktor:ktor-jackson:1.6.8'
+    implementation "io.ktor:ktor-auth:1.6.8"
+    implementation "io.ktor:ktor-auth-jwt:1.6.8"
+
+    //implementation 'org.jetbrains.kotlinx-serialization-json:1.3.0'
+
 }
 
 test {

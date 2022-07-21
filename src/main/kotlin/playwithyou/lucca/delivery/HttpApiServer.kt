@@ -1,13 +1,18 @@
 package playwithyou.lucca.delivery
 
-import io.ktor.application.*
-import io.ktor.routing.*
+import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
+import io.ktor.server.routing.*
 import org.slf4j.LoggerFactory
+import playwithyou.lucca.delivery.handler.HousesHandler
 import playwithyou.lucca.delivery.`interface`.Handler
 import playwithyou.lucca.delivery.presenter.SellerPresenter
 import playwithyou.lucca.delivery.handler.SellersHandler
+import playwithyou.lucca.delivery.presenter.HousePresenter
+import playwithyou.lucca.domain.useCase.seller.CreateSellerUseCase
+import playwithyou.lucca.infrastructure.repositories.SellerRepository
+import playwithyou.lucca.infrastructure.services.IdGenerator
 
 class HttpApiServer {
     private val logger = LoggerFactory.getLogger(this::class.java)
@@ -29,8 +34,12 @@ class HttpApiServer {
     }
 
     private fun getHandlers(): List<Handler> {
+        val idGenerator = IdGenerator()
+        val sellerRepository = SellerRepository()
+
         return listOf(
-            SellersHandler(SellerPresenter())
+            SellersHandler(SellerPresenter(CreateSellerUseCase(idGenerator,sellerRepository))),
+            HousesHandler(HousePresenter())
         )
     }
 }

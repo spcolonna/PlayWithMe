@@ -1,8 +1,8 @@
 package playwithyou.lucca.delivery.`interface`
 
-import io.ktor.application.*
+import io.ktor.server.application.*
+
 
 interface Handler {
-
-    fun routing(a: Application)
+    fun routing(app: Application)
 }
