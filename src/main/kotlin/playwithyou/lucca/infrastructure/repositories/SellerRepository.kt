@@ -1,33 +1,20 @@
 package playwithyou.lucca.infrastructure.repositories
 
-import com.mongodb.BasicDBObject
-import com.mongodb.MongoClient
+import MongoClientSingleton
 import com.mongodb.MongoException
+import com.mongodb.client.MongoCollection
 import org.bson.Document
 import playwithyou.lucca.domain.entity.Seller
 import playwithyou.lucca.domain.interfaces.ISellerRepository
 
 class SellerRepository : ISellerRepository {
 
-    override fun store(seller: Seller) {
-        var mongoClient: MongoClient? = null
-        try {
-            mongoClient = MongoClient("127.0.0.1", 27017)
-            var database = mongoClient.getDatabase("TinderHouse")
-            var collection = database.getCollection("Seller")
-            var document = Document()
-            document["id"] = seller.id
-            document["name"] = seller.name
-            document["phone"] = seller.phone
-            document["mail"] = seller.mail
-
-            collection.insertOne(document)
-            println("Kotlin connected to MongoDB! -> ${seller.name}")
-        } catch (e: MongoException) {
-            e.printStackTrace()
-        } finally {
-            mongoClient!!.close()
-        }
+    override fun store(seller: Seller) = try {
+        var collection = getCollection()
+        var document = createDocument(seller)
+        collection.insertOne(document)
+    } catch (e: MongoException) {
+        e.printStackTrace()
     }
 
     override fun delete(sellerId: String) {
@@ -37,5 +24,21 @@ class SellerRepository : ISellerRepository {
     override fun get(id: String): Seller? {
         TODO("Not yet implemented")
     }
+
+    private fun createDocument(seller: Seller): Document {
+        var document = Document()
+        document["id"] = seller.id
+        document["name"] = seller.name
+        document["phone"] = seller.phone
+        document["mail"] = seller.mail
+        return document
+    }
+
+    private fun getCollection(): MongoCollection<Document> {
+        var database = getDataBase()!!
+        return database.getCollection("Seller")
+    }
+
+    private fun getDataBase() = MongoClientSingleton.mongoClient?.getDatabase("TinderHouse")
 
 }
