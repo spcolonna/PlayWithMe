@@ -10,10 +10,10 @@ import playwithyou.lucca.delivery.`interface`.Handler
 import playwithyou.lucca.delivery.presenter.SellerPresenter
 import playwithyou.lucca.delivery.requests.CreateSellerRequest
 
-val format = Json { ignoreUnknownKeys = true }
 
 class SellersHandler(private val presenter: SellerPresenter) : Handler {
     private lateinit var application: Application
+    private val format = Json { ignoreUnknownKeys = true }
 
     override fun routing(app: Application) {
         application = app
