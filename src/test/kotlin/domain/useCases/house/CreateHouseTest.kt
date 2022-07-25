@@ -9,7 +9,7 @@ import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import playwithyou.lucca.domain.Given
 import playwithyou.lucca.domain.entity.Coordinates
-import playwithyou.lucca.domain.useCase.house.CreateHouse
+import playwithyou.lucca.domain.useCase.house.CreateHouseUseCase
 
 class CreateHouseTest {
 
@@ -21,7 +21,7 @@ class CreateHouseTest {
         val dto = Given.aHouseDto(sellerId = seller.id)
         val idGenerator = IdGeneratorDouble(houseId)
         val repository = HouseRepositoryDouble()
-        val useCase = CreateHouse(repository, SellerRepositoryDouble(seller), idGenerator)
+        val useCase = CreateHouseUseCase(repository, SellerRepositoryDouble(seller), idGenerator)
 
         val result = useCase.execute(dto)
 
@@ -37,7 +37,7 @@ class CreateHouseTest {
         val dto = Given.aHouseDto(sellerId = seller.id)
         val idGenerator = IdGeneratorDouble(houseId)
         val repository = HouseRepositoryDouble()
-        val useCase = CreateHouse(repository, SellerRepositoryDouble(seller), idGenerator)
+        val useCase = CreateHouseUseCase(repository, SellerRepositoryDouble(seller), idGenerator)
 
         val result = useCase.execute(dto)
 
@@ -55,7 +55,7 @@ class CreateHouseTest {
         val dto = Given.aHouseDto(coordinates, 25, "address", 89000, sellerId = seller.id)
         val idGenerator = IdGeneratorDouble(houseId)
         val repository = HouseRepositoryDouble()
-        val useCase = CreateHouse(repository, SellerRepositoryDouble(seller), idGenerator)
+        val useCase = CreateHouseUseCase(repository, SellerRepositoryDouble(seller), idGenerator)
 
         val result = useCase.execute(dto)
 
@@ -69,7 +69,7 @@ class CreateHouseTest {
         val dto = Given.aHouseDto(sellerId = sellerId)
         val seller = Given.aSeller(sellerId)
         val repository = SellerRepositoryDouble(seller)
-        val useCase = CreateHouse(HouseRepositoryDouble(), repository, IdGeneratorDouble("id"))
+        val useCase = CreateHouseUseCase(HouseRepositoryDouble(), repository, IdGeneratorDouble("id"))
 
         val result = useCase.validate(dto)
 
@@ -80,7 +80,7 @@ class CreateHouseTest {
     fun `validate not exist seller id`() {
         val sellerId = "notExistSellerId"
         val dto = Given.aHouseDto(sellerId = sellerId)
-        val useCase = CreateHouse(HouseRepositoryDouble(), SellerRepositoryDouble(), IdGeneratorDouble("id"))
+        val useCase = CreateHouseUseCase(HouseRepositoryDouble(), SellerRepositoryDouble(), IdGeneratorDouble("id"))
 
         val result = useCase.validate(dto)
 
@@ -92,7 +92,7 @@ class CreateHouseTest {
         val coordinates = Coordinates(1.0, 1.0)
         val dto = Given.aHouseDto(coordinates, 25, "address", 89000)
         val idGenerator = IdGeneratorDouble("id")
-        val useCase = CreateHouse(HouseRepositoryDouble(), SellerRepositoryDouble(), idGenerator)
+        val useCase = CreateHouseUseCase(HouseRepositoryDouble(), SellerRepositoryDouble(), idGenerator)
 
         val result = useCase.execute(dto)
 

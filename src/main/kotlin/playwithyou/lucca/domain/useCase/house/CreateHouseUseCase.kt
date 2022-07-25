@@ -7,7 +7,7 @@ import playwithyou.lucca.domain.interfaces.IHouseRepositoryDouble
 import playwithyou.lucca.domain.interfaces.IIdGenerator
 import playwithyou.lucca.domain.interfaces.ISellerRepository
 
-class CreateHouse(
+class CreateHouseUseCase(
     private val houseRepository: IHouseRepositoryDouble,
     private val sellerRepository: ISellerRepository,
     private val idGenerator: IIdGenerator

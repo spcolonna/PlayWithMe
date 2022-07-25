@@ -5,7 +5,5 @@ import java.util.*
 
 class IdGenerator : IIdGenerator {
 
-    override fun generate(): String {
-        return UUID.randomUUID().toString()
-    }
+    override fun generate() = UUID.randomUUID().toString()
 }
