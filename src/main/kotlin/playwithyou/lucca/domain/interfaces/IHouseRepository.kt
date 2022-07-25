@@ -2,7 +2,7 @@ package playwithyou.lucca.domain.interfaces
 
 import playwithyou.lucca.domain.entity.House
 
-interface IHouseRepositoryDouble {
+interface IHouseRepository {
     fun store(house: House)
     fun getHousesWithin(
         maxLatitude: Double,

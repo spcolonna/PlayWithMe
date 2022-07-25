@@ -3,17 +3,17 @@ package playwithyou.lucca.domain.useCase.house
 import playwithyou.lucca.delivery.dto.HouseDto
 import playwithyou.lucca.domain.Builder
 import playwithyou.lucca.domain.entity.House
-import playwithyou.lucca.domain.interfaces.IHouseRepositoryDouble
+import playwithyou.lucca.domain.interfaces.IHouseRepository
 import playwithyou.lucca.domain.interfaces.IIdGenerator
 import playwithyou.lucca.domain.interfaces.ISellerRepository
 
 class CreateHouseUseCase(
-    private val houseRepository: IHouseRepositoryDouble,
+    private val houseRepository: IHouseRepository,
     private val sellerRepository: ISellerRepository,
     private val idGenerator: IIdGenerator
 ) {
     fun execute(dto: HouseDto): String {
-        if (validate(dto)) return storeHouse(dto).houseId
+        if (validateDto(dto)) return storeHouse(dto).id
         return ""
     }
 
@@ -24,6 +24,6 @@ class CreateHouseUseCase(
         return house
     }
 
-    fun validate(dto: HouseDto) = sellerRepository.get(dto.sellerId) != null
+    fun validateDto(dto: HouseDto) = sellerRepository.get(dto.sellerId) != null
 
 }

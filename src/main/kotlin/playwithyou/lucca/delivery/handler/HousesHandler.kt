@@ -9,7 +9,7 @@ import kotlinx.serialization.json.Json
 import playwithyou.lucca.delivery.ResponseBuilder
 import playwithyou.lucca.delivery.`interface`.Handler
 import playwithyou.lucca.delivery.presenter.HousePresenter
-import playwithyou.lucca.delivery.requests.CreateSellerRequest
+import playwithyou.lucca.delivery.requests.CreateHouseRequest
 
 class HousesHandler (private val presenter: HousePresenter): Handler {
     private lateinit var application: Application
@@ -20,7 +20,7 @@ class HousesHandler (private val presenter: HousePresenter): Handler {
         app.routing {
             route("/house") {
                 post {
-                    val request = format.decodeFromString<CreateSellerRequest>(call.receiveText())
+                    val request = format.decodeFromString<CreateHouseRequest>(call.receiveText())
                     val response = ResponseBuilder(call)
                     presenter.register(request, response)
                 }

@@ -71,7 +71,7 @@ class CreateHouseTest {
         val repository = SellerRepositoryDouble(seller)
         val useCase = CreateHouseUseCase(HouseRepositoryDouble(), repository, IdGeneratorDouble("id"))
 
-        val result = useCase.validate(dto)
+        val result = useCase.validateDto(dto)
 
         result.shouldBeTrue();
     }
@@ -82,7 +82,7 @@ class CreateHouseTest {
         val dto = Given.aHouseDto(sellerId = sellerId)
         val useCase = CreateHouseUseCase(HouseRepositoryDouble(), SellerRepositoryDouble(), IdGeneratorDouble("id"))
 
-        val result = useCase.validate(dto)
+        val result = useCase.validateDto(dto)
 
         result.shouldBeFalse();
     }

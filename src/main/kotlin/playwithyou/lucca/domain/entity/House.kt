@@ -1,7 +1,7 @@
 package playwithyou.lucca.domain.entity
 
 data class House(
-    val houseId: String,
+    val id: String,
     var sellerId: String,
     val coordinates: Coordinates,
     val houseDimension: Int,

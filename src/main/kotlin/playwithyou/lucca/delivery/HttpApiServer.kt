@@ -10,7 +10,9 @@ import playwithyou.lucca.delivery.`interface`.Handler
 import playwithyou.lucca.delivery.presenter.SellerPresenter
 import playwithyou.lucca.delivery.handler.SellersHandler
 import playwithyou.lucca.delivery.presenter.HousePresenter
+import playwithyou.lucca.domain.useCase.house.CreateHouseUseCase
 import playwithyou.lucca.domain.useCase.seller.CreateSellerUseCase
+import playwithyou.lucca.infrastructure.repositories.HouseRepository
 import playwithyou.lucca.infrastructure.repositories.SellerRepository
 import playwithyou.lucca.infrastructure.services.IdGenerator
 
@@ -36,10 +38,11 @@ class HttpApiServer {
     private fun getHandlers(): List<Handler> {
         val idGenerator = IdGenerator()
         val sellerRepository = SellerRepository()
+        val houseRepository = HouseRepository()
 
         return listOf(
             SellersHandler(SellerPresenter(CreateSellerUseCase(idGenerator,sellerRepository))),
-            HousesHandler(HousePresenter())
+            HousesHandler(HousePresenter(CreateHouseUseCase(houseRepository,sellerRepository,idGenerator)))
         )
     }
 }

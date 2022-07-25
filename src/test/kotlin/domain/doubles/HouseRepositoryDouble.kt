@@ -1,9 +1,9 @@
 package domain.doubles
 
 import playwithyou.lucca.domain.entity.House
-import playwithyou.lucca.domain.interfaces.IHouseRepositoryDouble
+import playwithyou.lucca.domain.interfaces.IHouseRepository
 
-class HouseRepositoryDouble(houses: List<House> = listOf()) : IHouseRepositoryDouble {
+class HouseRepositoryDouble(houses: List<House> = listOf()) : IHouseRepository {
 
     lateinit var lastHouseCalled: House
     private var storedHouses = houses
