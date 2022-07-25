@@ -22,7 +22,13 @@ class SellerRepository : ISellerRepository {
     }
 
     override fun get(id: String): Seller? {
-        TODO("Not yet implemented")
+        val collection = getCollection()
+        val document = collection.find(Document("id", id)).first()
+        return if (document != null) {
+            createSeller(document)
+        } else {
+            null
+        }
     }
 
     override fun getFromMail(mail: String): Seller? {
