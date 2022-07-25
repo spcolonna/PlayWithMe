@@ -1,5 +1,8 @@
 package playwithyou.lucca.domain.entity
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class House(
     val id: String,
     var sellerId: String,

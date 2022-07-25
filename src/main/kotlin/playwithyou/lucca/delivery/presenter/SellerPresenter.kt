@@ -1,7 +1,7 @@
 package playwithyou.lucca.delivery.presenter
 
 import playwithyou.lucca.delivery.ResponseBuilder
-import playwithyou.lucca.delivery.requests.CreateSellerRequest
+import playwithyou.lucca.delivery.requests.seller.CreateSellerRequest
 import playwithyou.lucca.delivery.responses.IdResponse
 import playwithyou.lucca.domain.useCase.seller.CreateSellerUseCase
 

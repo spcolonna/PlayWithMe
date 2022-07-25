@@ -1,4 +1,4 @@
-package playwithyou.lucca.delivery.requests
+package playwithyou.lucca.delivery.requests.house
 
 import kotlinx.serialization.Serializable
 import playwithyou.lucca.delivery.dto.HouseDto

@@ -4,7 +4,7 @@ import playwithyou.lucca.domain.entity.Coordinates
 import playwithyou.lucca.domain.entity.House
 import playwithyou.lucca.domain.interfaces.IHouseRepository
 
-class GetHousesAround(private val repository: IHouseRepository) {
+class GetHousesAroundUseCase(private val repository: IHouseRepository) {
     companion object {
         const val AROUND_METERS = 3
         const val LATITUDE_EQ_ONE_METERS = 0.003

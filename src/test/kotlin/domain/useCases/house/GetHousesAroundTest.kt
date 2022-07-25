@@ -6,7 +6,7 @@ import org.junit.Ignore
 import org.junit.jupiter.api.Test
 import playwithyou.lucca.domain.Given
 import playwithyou.lucca.domain.entity.Coordinates
-import playwithyou.lucca.domain.useCase.house.GetHousesAround
+import playwithyou.lucca.domain.useCase.house.GetHousesAroundUseCase
 
 class GetHousesAroundTest {
 
@@ -15,7 +15,7 @@ class GetHousesAroundTest {
         val expected = Given.aHouse(coordinates = Coordinates(-34.903873, -56.152775))
         val myCoordinate = Coordinates(-34.903222, -56.153998)
         val repository = HouseRepositoryDouble(listOf(expected))
-        val useCase = GetHousesAround(repository)
+        val useCase = GetHousesAroundUseCase(repository)
 
         val result = useCase.execute(myCoordinate)
 
@@ -27,7 +27,7 @@ class GetHousesAroundTest {
         val expected = Given.aHouse(coordinates = Coordinates(-35.903873, -54.152775))
         val myCoordinate = Coordinates(-34.903222, -56.153998)
         val repository = HouseRepositoryDouble(listOf(expected))
-        val useCase = GetHousesAround(repository)
+        val useCase = GetHousesAroundUseCase(repository)
 
         val result = useCase.execute(myCoordinate)
 
@@ -40,7 +40,7 @@ class GetHousesAroundTest {
         val storedHouses = listOf(Given.aHouse(coordinates = Coordinates(37.421028, -122.084660)), expected)
         val myCoordinate = Coordinates(-34.903222, -56.153998)
         val repository = HouseRepositoryDouble(storedHouses)
-        val useCase = GetHousesAround(repository)
+        val useCase = GetHousesAroundUseCase(repository)
 
         val result = useCase.execute(myCoordinate)
 

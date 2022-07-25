@@ -8,7 +8,7 @@ import kotlinx.serialization.json.Json
 import playwithyou.lucca.delivery.ResponseBuilder
 import playwithyou.lucca.delivery.`interface`.Handler
 import playwithyou.lucca.delivery.presenter.SellerPresenter
-import playwithyou.lucca.delivery.requests.CreateSellerRequest
+import playwithyou.lucca.delivery.requests.seller.CreateSellerRequest
 
 
 class SellersHandler(private val presenter: SellerPresenter) : Handler {
