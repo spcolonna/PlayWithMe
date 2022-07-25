@@ -3,12 +3,13 @@ package playwithyou.lucca.infrastructure.repositories
 import com.mongodb.MongoException
 import com.mongodb.client.MongoCollection
 import org.bson.Document
+import playwithyou.lucca.domain.entity.Coordinates
 import playwithyou.lucca.domain.entity.House
 import playwithyou.lucca.domain.interfaces.IHouseRepository
 
 class HouseRepository : IHouseRepository {
 
-    override fun store(house: House)  = try {
+    override fun store(house: House) = try {
         val collection = getCollection()
         val document = createDocument(house)
         collection.insertOne(document)
@@ -22,7 +23,25 @@ class HouseRepository : IHouseRepository {
         maxLongitude: Double,
         minLongitude: Double
     ): List<House> {
-        TODO("Not yet implemented")
+        val collection = getCollection()
+        var documents = collection.find(
+            Document("latitude", Document("\$gte", minLatitude))
+                .append("latitude", Document("\$lte", maxLatitude))
+                .append("longitude", Document("\$gte", minLongitude))
+                .append("longitude", Document("\$lte", maxLongitude))
+        )
+        return documents.map { createHouse(it) }.toList()
+    }
+
+    private fun createHouse(document: Document): House {
+        return House(
+            document.getString("id"),
+            document.getString("sellerId"),
+            Coordinates(document.getDouble("latitude"), document.getDouble("longitude")),
+            document.getInteger("houseDimension"),
+            document.getString("address"),
+            document.getInteger("price")
+        )
     }
 
     private fun createDocument(house: House): Document {

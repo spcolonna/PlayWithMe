@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="domain.useCases.house.GetHousesAroundTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-07-25T15:11:10" hostname="192.168.1.2" time="0.008">
+<testsuite name="domain.useCases.house.GetHousesAroundTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-07-25T18:25:59" hostname="192.168.1.2" time="0.006">
   <properties/>
-  <testcase name="get only 3m house around()" classname="domain.useCases.house.GetHousesAroundTest" time="0.008"/>
+  <testcase name="get only 3m house around()" classname="domain.useCases.house.GetHousesAroundTest" time="0.006"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

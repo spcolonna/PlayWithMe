@@ -1,9 +1,9 @@
-package playwithyou.lucca.delivery.requests.house
+package playwithyou.lucca.delivery.responses
 
 import kotlinx.serialization.Serializable
 import playwithyou.lucca.domain.entity.House
 
 @Serializable
-data class AroundRequest(val houses: List<House>){
+class HouseListResponse(val houses: List<House>) {
 
 }

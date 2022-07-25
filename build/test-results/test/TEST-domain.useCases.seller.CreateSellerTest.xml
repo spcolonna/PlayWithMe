@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="domain.useCases.seller.CreateSellerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-07-25T15:11:09" hostname="192.168.1.2" time="1.202">
+<testsuite name="domain.useCases.seller.CreateSellerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-07-25T18:25:58" hostname="192.168.1.2" time="0.958">
   <properties/>
-  <testcase name="create seller()" classname="domain.useCases.seller.CreateSellerTest" time="1.187"/>
-  <testcase name="create another seller()" classname="domain.useCases.seller.CreateSellerTest" time="0.004"/>
+  <testcase name="create seller()" classname="domain.useCases.seller.CreateSellerTest" time="0.95"/>
+  <testcase name="create another seller()" classname="domain.useCases.seller.CreateSellerTest" time="0.001"/>
   <testcase name="Validate seller mail if exist()" classname="domain.useCases.seller.CreateSellerTest" time="0.001"/>
-  <testcase name="Not validate seller mail if exist()" classname="domain.useCases.seller.CreateSellerTest" time="0.002"/>
-  <testcase name="Not validate another seller mail if exist()" classname="domain.useCases.seller.CreateSellerTest" time="0.002"/>
+  <testcase name="Not validate seller mail if exist()" classname="domain.useCases.seller.CreateSellerTest" time="0.0"/>
+  <testcase name="Not validate another seller mail if exist()" classname="domain.useCases.seller.CreateSellerTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

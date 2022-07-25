@@ -57,7 +57,7 @@ class SellerRepository : ISellerRepository {
     }
 
     private fun getCollection(): MongoCollection<Document> {
-        var database = getDataBase()!!
+        val database = getDataBase()!!
         return database.getCollection("Seller")
     }
 

@@ -1,5 +1,6 @@
 package playwithyou.lucca.domain
 
+import playwithyou.lucca.delivery.dto.CoordinateDto
 import playwithyou.lucca.delivery.dto.HouseDto
 import playwithyou.lucca.delivery.dto.SellerDto
 import playwithyou.lucca.domain.entity.Coordinates
@@ -38,6 +39,8 @@ class Given {
             price: Int = 0,
             sellerId: String = "sellerId"
         ) = House(houseId, sellerId, coordinates, houseDimension, address, price)
+
+        fun aCoordinatesDto(latitude: Double, longitude: Double) = CoordinateDto(latitude, longitude)
     }
 }
 

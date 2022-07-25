@@ -11,6 +11,7 @@ import playwithyou.lucca.delivery.presenter.SellerPresenter
 import playwithyou.lucca.delivery.handler.SellersHandler
 import playwithyou.lucca.delivery.presenter.HousePresenter
 import playwithyou.lucca.domain.useCase.house.CreateHouseUseCase
+import playwithyou.lucca.domain.useCase.house.GetHousesAroundUseCase
 import playwithyou.lucca.domain.useCase.seller.CreateSellerUseCase
 import playwithyou.lucca.infrastructure.repositories.HouseRepository
 import playwithyou.lucca.infrastructure.repositories.SellerRepository
@@ -42,7 +43,10 @@ class HttpApiServer {
 
         return listOf(
             SellersHandler(SellerPresenter(CreateSellerUseCase(idGenerator,sellerRepository))),
-            HousesHandler(HousePresenter(CreateHouseUseCase(houseRepository,sellerRepository,idGenerator)))
+            HousesHandler(HousePresenter(
+                CreateHouseUseCase(houseRepository,sellerRepository,idGenerator),
+                GetHousesAroundUseCase(houseRepository)
+            ))
         )
     }
 }

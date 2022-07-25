@@ -1,6 +1,6 @@
 package playwithyou.lucca.domain.useCase.house
 
-import playwithyou.lucca.domain.entity.Coordinates
+import playwithyou.lucca.delivery.dto.CoordinateDto
 import playwithyou.lucca.domain.entity.House
 import playwithyou.lucca.domain.interfaces.IHouseRepository
 
@@ -11,11 +11,11 @@ class GetHousesAroundUseCase(private val repository: IHouseRepository) {
         const val LONGITUDE_EQ_ONE_METERS = 0.006
     }
 
-    fun execute(myCoordinate: Coordinates): List<House> {
-        val maxLatitude = myCoordinate.latitude + (LATITUDE_EQ_ONE_METERS * AROUND_METERS)
-        val minLatitude = myCoordinate.latitude - (LATITUDE_EQ_ONE_METERS * AROUND_METERS)
-        val maxLongitude = myCoordinate.longitude + (LONGITUDE_EQ_ONE_METERS * AROUND_METERS)
-        val minLongitude = myCoordinate.longitude - (LONGITUDE_EQ_ONE_METERS * AROUND_METERS)
+    fun execute(dto: CoordinateDto): List<House> {
+        val maxLatitude = dto.latitude + (LATITUDE_EQ_ONE_METERS * AROUND_METERS)
+        val minLatitude = dto.latitude - (LATITUDE_EQ_ONE_METERS * AROUND_METERS)
+        val maxLongitude = dto.longitude + (LONGITUDE_EQ_ONE_METERS * AROUND_METERS)
+        val minLongitude = dto.longitude - (LONGITUDE_EQ_ONE_METERS * AROUND_METERS)
         return repository.getHousesWithin(maxLatitude, minLatitude, maxLongitude, minLongitude)
     }
 
