@@ -10,7 +10,7 @@ class ResponseBuilder(private val call: ApplicationCall) {
         call.respond(HttpStatusCode.OK)
     }
 
-    fun onError(body: Any) = runBlocking {
+    fun onInvalid(body: Any) = runBlocking {
         call.respond(HttpStatusCode.Conflict, body)
     }
 }

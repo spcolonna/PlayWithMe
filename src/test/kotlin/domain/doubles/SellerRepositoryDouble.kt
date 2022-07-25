@@ -6,13 +6,13 @@ import playwithyou.lucca.domain.interfaces.ISellerRepository
 
 class SellerRepositoryDouble : ISellerRepository {
 
-    private lateinit var seller: Seller
+    private var seller: Seller
     lateinit var lastVendorIdCalled: String
-    lateinit var lastVendorStored: Seller
+    var lastVendorStored = Given.aSeller()
     var wasCalled = false
 
     constructor(){
-        seller = Given.aSeller()
+        seller = Given.aSeller("unknownId", "unknownName", "unknownEmail", "unknownPassword")
     }
     constructor(seller: Seller) {
         this.seller = seller
@@ -30,6 +30,12 @@ class SellerRepositoryDouble : ISellerRepository {
 
     override fun get(id: String): Seller? {
         if(seller.id == id)
+            return seller
+        return null
+    }
+
+    override fun getFromMail(mail: String): Seller? {
+        if(seller.mail == mail)
             return seller
         return null
     }

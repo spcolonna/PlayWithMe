@@ -14,4 +14,10 @@ class CreateSellerUseCase(private val idGenerator: IIdGenerator, private val rep
         return id
     }
 
+    fun validateDto(dto: SellerDto): Boolean {
+        if (repository.getFromMail(dto.mail) == null)
+            return true
+        return false
+    }
+
 }

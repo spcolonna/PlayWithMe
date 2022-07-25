@@ -8,7 +8,11 @@ import playwithyou.lucca.domain.useCase.seller.CreateSellerUseCase
 
 class SellerPresenter(private val createSellerUseCase: CreateSellerUseCase) {
     fun register(request: CreateSellerRequest, builder: ResponseBuilder) {
-        builder.onValid(IdResponse(createSellerUseCase.execute(request.toDto())))
+        val dto = request.toDto()
+        if(createSellerUseCase.validateDto(dto))
+            builder.onValid(IdResponse(createSellerUseCase.execute(dto)))
+        else
+            builder.onInvalid("mail conflict")
     }
 
     fun get(id: String) {
